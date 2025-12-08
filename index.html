@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Best Deals - Amazon Products</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        header {
+            text-align: center;
+            color: white;
+            padding: 40px 20px;
+            margin-bottom: 40px;
+        }
+        header h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+            padding: 20px;
+        }
+        .product-card {
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+        }
+        .product-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 15px;
+            font-size: 3em;
+        }
+        .product-title {
+            font-size: 1.1em;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 10px;
+            min-height: 50px;
+        }
+        .product-category {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.8em;
+            margin-bottom: 10px;
+        }
+        .product-price {
+            font-size: 1.5em;
+            color: #B12704;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+        .product-description {
+            color: #666;
+            font-size: 0.9em;
+            margin-bottom: 15px;
+            flex-grow: 1;
+        }
+        .buy-button {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            background: linear-gradient(135deg, #FF9900 0%, #FF6600 100%);
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+        .buy-button:hover {
+            background: linear-gradient(135deg, #FF6600 0%, #FF3300 100%);
+            transform: scale(1.05);
+        }
+        .filter-section {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .filter-btn {
+            background: white;
+            border: none;
+            padding: 10px 20px;
+            margin: 5px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        .filter-btn:hover, .filter-btn.active {
+            background: #FF9900;
+            color: white;
+        }
+        footer {
+            text-align: center;
+            color: white;
+            padding: 30px;
+            margin-top: 50px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🛍️ Best Amazon Deals</h1>
+            <p>Curated collection of top-rated products</p>
+        </header>
+
+        <div class="filter-section">
+            <button class="filter-btn active" onclick="filterProducts('all')">All Products</button>
+            <button class="filter-btn" onclick="filterProducts('Electronics')">Electronics</button>
+            <button class="filter-btn" onclick="filterProducts('Home')">Home & Kitchen</button>
+            <button class="filter-btn" onclick="filterProducts('Fashion')">Fashion</button>
+            <button class="filter-btn" onclick="filterProducts('Books')">Books</button>
+            <button class="filter-btn" onclick="filterProducts('Sports')">Sports</button>
+        </div>
+
+        <div class="products-grid" id="productsGrid"></div>
+
+        <footer>
+            <p>💡 As an Amazon Associate, I earn from qualifying purchases.</p>
+            <p style="margin-top: 10px; opacity: 0.8;">© 2024 Best Deals Store. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <script>
+        const products = [
+            {category: 'Electronics', emoji: '🎧', title: 'Wireless Bluetooth Headphones', price: '₹2,999', description: 'Premium sound quality with noise cancellation', asin: 'B08C7KG5LP'},
+            {category: 'Electronics', emoji: '📱', title: 'Smartphone Stand', price: '₹499', description: 'Adjustable phone holder for desk', asin: 'B08BHXQGM5'},
+            {category: 'Electronics', emoji: '⌚', title: 'Smart Watch', price: '₹4,999', description: 'Fitness tracker with heart rate monitor', asin: 'B09JQKRQHB'},
+            {category: 'Electronics', emoji: '🖱️', title: 'Wireless Mouse', price: '₹799', description: 'Ergonomic design with silent clicks', asin: 'B07W6JD3V3'},
+            {category: 'Electronics', emoji: '⌨️', title: 'Mechanical Keyboard', price: '₹3,499', description: 'RGB backlit gaming keyboard', asin: 'B08CXHXFKL'},
+            {category: 'Electronics', emoji: '🔌', title: 'Power Bank 20000mAh', price: '₹1,999', description: 'Fast charging portable charger', asin: 'B08THFDRSZ'},
+            {category: 'Electronics', emoji: '🎮', title: 'Gaming Controller', price: '₹2,499', description: 'Compatible with PC and console', asin: 'B08FC6MR62'},
+            {category: 'Electronics', emoji: '📷', title: 'Webcam HD 1080p', price: '₹2,799', description: 'Perfect for video calls and streaming', asin: 'B08BHXQGM5'},
+            {category: 'Electronics', emoji: '🔊', title: 'Bluetooth Speaker', price: '₹1,799', description: 'Waterproof portable speaker', asin: 'B08C7KG5LP'},
+            {category: 'Electronics', emoji: '💡', title: 'Smart LED Bulb', price: '₹699', description: 'WiFi enabled color changing bulb', asin: 'B08THFDRSZ'},
+
+            {category: 'Home', emoji: '☕', title: 'Coffee Maker', price: '₹3,999', description: 'Automatic drip coffee machine', asin: 'B08FC6MR62'},
+            {category: 'Home', emoji: '🍳', title: 'Non-Stick Cookware Set', price: '₹2,999', description: '5-piece premium cookware', asin: 'B08BHXQGM5'},
+            {category: 'Home', emoji: '🔪', title: 'Kitchen Knife Set', price: '₹1,499', description: 'Professional chef knives', asin: 'B08C7KG5LP'},
+            {category: 'Home', emoji: '🧹', title: 'Vacuum Cleaner', price: '₹5,999', description: 'Powerful bagless vacuum', asin: 'B09JQKRQHB'},
+            {category: 'Home', emoji: '🛏️', title: 'Memory Foam Pillow', price: '₹1,299', description: 'Orthopedic neck support', asin: 'B08THFDRSZ'},
+            {category: 'Home', emoji: '🕯️', title: 'Scented Candles Set', price: '₹899', description: 'Aromatherapy candles pack of 6', asin: 'B08FC6MR62'},
+            {category: 'Home', emoji: '🪴', title: 'Indoor Plant Pot Set', price: '₹799', description: 'Ceramic pots with drainage', asin: 'B08BHXQGM5'},
+            {category: 'Home', emoji: '🧺', title: 'Laundry Basket', price: '₹599', description: 'Collapsible storage basket', asin: 'B08C7KG5LP'},
+            {category: 'Home', emoji: '🍽️', title: 'Dinner Set 24-Piece', price: '₹3,499', description: 'Elegant ceramic dinnerware', asin: 'B09JQKRQHB'},
+            {category: 'Home', emoji: '🧊', title: 'Water Bottle 1L', price: '₹499', description: 'Insulated stainless steel', asin: 'B08THFDRSZ'},
+
+            {category: 'Fashion', emoji: '👕', title: 'Cotton T-Shirt Pack', price: '₹999', description: 'Combo of 3 premium t-shirts', asin: 'B08FC6MR62'},
+            {category: 'Fashion', emoji: '👖', title: 'Denim Jeans', price: '₹1,799', description: 'Slim fit stretchable jeans', asin: 'B08BHXQGM5'},
+            {category: 'Fashion', emoji: '👟', title: 'Running Shoes', price: '₹2,999', description: 'Lightweight sports shoes', asin: 'B08C7KG5LP'},
+            {category: 'Fashion', emoji: '🎒', title: 'Laptop Backpack', price: '₹1,499', description: 'Water resistant with USB port', asin: 'B09JQKRQHB'},
+            {category: 'Fashion', emoji: '⌚', title: 'Analog Watch', price: '₹2,499', description: 'Classic leather strap watch', asin: 'B08THFDRSZ'},
+            {category: 'Fashion', emoji: '🕶️', title: 'Sunglasses', price: '₹899', description: 'UV protection polarized', asin: 'B08FC6MR62'},
+            {category: 'Fashion', emoji: '👜', title: 'Handbag', price: '₹1,999', description: 'Stylish leather handbag', asin: 'B08BHXQGM5'},
+            {category: 'Fashion', emoji: '🧢', title: 'Baseball Cap', price: '₹499', description: 'Adjustable sports cap', asin: 'B08C7KG5LP'},
+            {category: 'Fashion', emoji: '🧣', title: 'Winter Scarf', price: '₹699', description: 'Soft woolen scarf', asin: 'B09JQKRQHB'},
+            {category: 'Fashion', emoji: '👔', title: 'Formal Tie Set', price: '₹799', description: 'Pack of 3 silk ties', asin: 'B08THFDRSZ'},
+
+            {category: 'Books', emoji: '📚', title: 'Self-Help Book', price: '₹399', description: 'Bestselling motivational book', asin: 'B08FC6MR62'},
+            {category: 'Books', emoji: '📖', title: 'Fiction Novel', price: '₹299', description: 'Award-winning fiction', asin: 'B08BHXQGM5'},
+            {category: 'Books', emoji: '📕', title: 'Cookbook', price: '₹499', description: 'Indian recipes collection', asin: 'B08C7KG5LP'},
+            {category: 'Books', emoji: '📗', title: 'Business Strategy Book', price: '₹599', description: 'Learn business fundamentals', asin: 'B09JQKRQHB'},
+            {category: 'Books', emoji: '📘', title: 'Programming Guide', price: '₹799', description: 'Complete coding tutorial', asin: 'B08THFDRSZ'},
+            {category: 'Books', emoji: '📙', title: 'Children Story Book', price: '₹249', description: 'Illustrated kids stories', asin: 'B08FC6MR62'},
+            {category: 'Books', emoji: '📔', title: 'Journal Notebook', price: '₹349', description: 'Premium quality diary', asin: 'B08BHXQGM5'},
+            {category: 'Books', emoji: '✏️', title: 'Pen Set', price: '₹299', description: 'Smooth writing pens pack', asin: 'B08C7KG5LP'},
+            {category: 'Books', emoji: '🖊️', title: 'Fountain Pen', price: '₹899', description: 'Luxury writing instrument', asin: 'B09JQKRQHB'},
+            {category: 'Books', emoji: '📝', title: 'Sticky Notes Set', price: '₹199', description: 'Colorful memo pads', asin: 'B08THFDRSZ'},
+
+            {category: 'Sports', emoji: '⚽', title: 'Football', price: '₹799', description: 'Professional size 5 football', asin: 'B08FC6MR62'},
+            {category: 'Sports', emoji: '🏏', title: 'Cricket Bat', price: '₹2,499', description: 'Kashmir willow cricket bat', asin: 'B08BHXQGM5'},
+            {category: 'Sports', emoji: '🏸', title: 'Badminton Racket', price: '₹1,299', description: 'Lightweight carbon racket', asin: 'B08C7KG5LP'},
+            {category: 'Sports', emoji: '🎾', title: 'Tennis Ball Set', price: '₹499', description: 'Pack of 6 tennis balls', asin: 'B09JQKRQHB'},
+            {category: 'Sports', emoji: '🏋️', title: 'Dumbbell Set', price: '₹3,999', description: 'Adjustable weight dumbbells', asin: 'B08THFDRSZ'},
+            {category: 'Sports', emoji: '🧘', title: 'Yoga Mat', price: '₹899', description: 'Non-slip exercise mat', asin: 'B08FC6MR62'},
+            {category: 'Sports', emoji: '🏃', title: 'Resistance Bands', price: '₹699', description: 'Set of 5 workout bands', asin: 'B08BHXQGM5'},
+            {category: 'Sports', emoji: '🚴', title: 'Cycling Gloves', price: '₹599', description: 'Padded bike gloves', asin: 'B08C7KG5LP'},
+            {category: 'Sports', emoji: '⛹️', title: 'Basketball', price: '₹1,299', description: 'Outdoor rubber basketball', asin: 'B09JQKRQHB'},
+            {category: 'Sports', emoji: '🏊', title: 'Swimming Goggles', price: '₹499', description: 'Anti-fog swim goggles', asin: 'B08THFDRSZ'}
+        ];
+
+        const associateId = 'vashustore0b-21';
+
+        function createProductCard(product) {
+            const amazonUrl = `https://www.amazon.in/dp/${product.asin}?tag=${associateId}`;
+            return `
+                <div class="product-card" data-category="${product.category}">
+                    <div class="product-image">${product.emoji}</div>
+                    <span class="product-category">${product.category}</span>
+                    <h3 class="product-title">${product.title}</h3>
+                    <p class="product-description">${product.description}</p>
+                    <div class="product-price">${product.price}</div>
+                    <a href="${amazonUrl}" target="_blank" class="buy-button">Buy on Amazon</a>
+                </div>
+            `;
+        }
+
+        function renderProducts(filter = 'all') {
+            const grid = document.getElementById('productsGrid');
+            const filteredProducts = filter === 'all' 
+                ? products 
+                : products.filter(p => p.category === filter);
+            
+            grid.innerHTML = filteredProducts.map(createProductCard).join('');
+        }
+
+        function filterProducts(category) {
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            event.target.classList.add('active');
+            renderProducts(category);
+        }
+
+        // Initial render
+        renderProducts();
+    </script>
+</body>
+</html>
