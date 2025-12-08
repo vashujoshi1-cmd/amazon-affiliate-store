@@ -56,14 +56,20 @@
         }
         .product-image {
             width: 100%;
-            height: 200px;
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            height: 220px;
             border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
             margin-bottom: 15px;
-            font-size: 3em;
+            overflow: hidden;
+            background: #f5f5f5;
+        }
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            transition: transform 0.3s ease;
+        }
+        .product-card:hover .product-image img {
+            transform: scale(1.05);
         }
         .product-title {
             font-size: 1.1em;
@@ -135,13 +141,20 @@
             padding: 30px;
             margin-top: 50px;
         }
+        .loading {
+            display: none;
+            text-align: center;
+            padding: 20px;
+            color: white;
+            font-size: 1.2em;
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <header>
             <h1>🛍️ Best Amazon Deals</h1>
-            <p>Curated collection of top-rated products</p>
+            <p>Curated collection of top-rated products with real images</p>
         </header>
 
         <div class="filter-section">
@@ -153,6 +166,7 @@
             <button class="filter-btn" onclick="filterProducts('Sports')">Sports</button>
         </div>
 
+        <div class="loading" id="loading">Loading products...</div>
         <div class="products-grid" id="productsGrid"></div>
 
         <footer>
@@ -163,69 +177,72 @@
 
     <script>
         const products = [
-            {category: 'Electronics', emoji: '🎧', title: 'Wireless Bluetooth Headphones', price: '₹2,999', description: 'Premium sound quality with noise cancellation', asin: 'B08C7KG5LP'},
-            {category: 'Electronics', emoji: '📱', title: 'Smartphone Stand', price: '₹499', description: 'Adjustable phone holder for desk', asin: 'B08BHXQGM5'},
-            {category: 'Electronics', emoji: '⌚', title: 'Smart Watch', price: '₹4,999', description: 'Fitness tracker with heart rate monitor', asin: 'B09JQKRQHB'},
-            {category: 'Electronics', emoji: '🖱️', title: 'Wireless Mouse', price: '₹799', description: 'Ergonomic design with silent clicks', asin: 'B07W6JD3V3'},
-            {category: 'Electronics', emoji: '⌨️', title: 'Mechanical Keyboard', price: '₹3,499', description: 'RGB backlit gaming keyboard', asin: 'B08CXHXFKL'},
-            {category: 'Electronics', emoji: '🔌', title: 'Power Bank 20000mAh', price: '₹1,999', description: 'Fast charging portable charger', asin: 'B08THFDRSZ'},
-            {category: 'Electronics', emoji: '🎮', title: 'Gaming Controller', price: '₹2,499', description: 'Compatible with PC and console', asin: 'B08FC6MR62'},
-            {category: 'Electronics', emoji: '📷', title: 'Webcam HD 1080p', price: '₹2,799', description: 'Perfect for video calls and streaming', asin: 'B08BHXQGM5'},
-            {category: 'Electronics', emoji: '🔊', title: 'Bluetooth Speaker', price: '₹1,799', description: 'Waterproof portable speaker', asin: 'B08C7KG5LP'},
-            {category: 'Electronics', emoji: '💡', title: 'Smart LED Bulb', price: '₹699', description: 'WiFi enabled color changing bulb', asin: 'B08THFDRSZ'},
+            {category: 'Electronics', title: 'Wireless Bluetooth Headphones', price: '₹2,999', description: 'Premium sound quality with noise cancellation', image: 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400&h=400&fit=crop'},
+            {category: 'Electronics', title: 'Smartphone Stand', price: '₹499', description: 'Adjustable phone holder for desk', image: 'https://images.unsplash.com/photo-1601784551446-20c9e07cdbdb?w=400&h=400&fit=crop'},
+            {category: 'Electronics', title: 'Smart Watch', price: '₹4,999', description: 'Fitness tracker with heart rate monitor', image: 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400&h=400&fit=crop'},
+            {category: 'Electronics', title: 'Wireless Mouse', price: '₹799', description: 'Ergonomic design with silent clicks', image: 'https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?w=400&h=400&fit=crop'},
+            {category: 'Electronics', title: 'Mechanical Keyboard', price: '₹3,499', description: 'RGB backlit gaming keyboard', image: 'https://images.unsplash.com/photo-1587829741301-dc798b83add3?w=400&h=400&fit=crop'},
+            {category: 'Electronics', title: 'Power Bank 20000mAh', price: '₹1,999', description: 'Fast charging portable charger', image: 'https://images.unsplash.com/photo-1609091839311-d5365f9ff1c5?w=400&h=400&fit=crop'},
+            {category: 'Electronics', title: 'Gaming Controller', price: '₹2,499', description: 'Compatible with PC and console', image: 'https://images.unsplash.com/photo-1592840496694-26d035b52b48?w=400&h=400&fit=crop'},
+            {category: 'Electronics', title: 'Webcam HD 1080p', price: '₹2,799', description: 'Perfect for video calls and streaming', image: 'https://images.unsplash.com/photo-1587826080692-f439cd0b70da?w=400&h=400&fit=crop'},
+            {category: 'Electronics', title: 'Bluetooth Speaker', price: '₹1,799', description: 'Waterproof portable speaker', image: 'https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?w=400&h=400&fit=crop'},
+            {category: 'Electronics', title: 'Smart LED Bulb', price: '₹699', description: 'WiFi enabled color changing bulb', image: 'https://images.unsplash.com/photo-1550985616-10810253b84d?w=400&h=400&fit=crop'},
 
-            {category: 'Home', emoji: '☕', title: 'Coffee Maker', price: '₹3,999', description: 'Automatic drip coffee machine', asin: 'B08FC6MR62'},
-            {category: 'Home', emoji: '🍳', title: 'Non-Stick Cookware Set', price: '₹2,999', description: '5-piece premium cookware', asin: 'B08BHXQGM5'},
-            {category: 'Home', emoji: '🔪', title: 'Kitchen Knife Set', price: '₹1,499', description: 'Professional chef knives', asin: 'B08C7KG5LP'},
-            {category: 'Home', emoji: '🧹', title: 'Vacuum Cleaner', price: '₹5,999', description: 'Powerful bagless vacuum', asin: 'B09JQKRQHB'},
-            {category: 'Home', emoji: '🛏️', title: 'Memory Foam Pillow', price: '₹1,299', description: 'Orthopedic neck support', asin: 'B08THFDRSZ'},
-            {category: 'Home', emoji: '🕯️', title: 'Scented Candles Set', price: '₹899', description: 'Aromatherapy candles pack of 6', asin: 'B08FC6MR62'},
-            {category: 'Home', emoji: '🪴', title: 'Indoor Plant Pot Set', price: '₹799', description: 'Ceramic pots with drainage', asin: 'B08BHXQGM5'},
-            {category: 'Home', emoji: '🧺', title: 'Laundry Basket', price: '₹599', description: 'Collapsible storage basket', asin: 'B08C7KG5LP'},
-            {category: 'Home', emoji: '🍽️', title: 'Dinner Set 24-Piece', price: '₹3,499', description: 'Elegant ceramic dinnerware', asin: 'B09JQKRQHB'},
-            {category: 'Home', emoji: '🧊', title: 'Water Bottle 1L', price: '₹499', description: 'Insulated stainless steel', asin: 'B08THFDRSZ'},
+            {category: 'Home', title: 'Coffee Maker', price: '₹3,999', description: 'Automatic drip coffee machine', image: 'https://images.unsplash.com/photo-1517668808822-9ebb02f2a0e6?w=400&h=400&fit=crop'},
+            {category: 'Home', title: 'Non-Stick Cookware Set', price: '₹2,999', description: '5-piece premium cookware', image: 'https://images.unsplash.com/photo-1584990347449-39b4aa02d0f6?w=400&h=400&fit=crop'},
+            {category: 'Home', title: 'Kitchen Knife Set', price: '₹1,499', description: 'Professional chef knives', image: 'https://images.unsplash.com/photo-1593618998160-e34014e67546?w=400&h=400&fit=crop'},
+            {category: 'Home', title: 'Vacuum Cleaner', price: '₹5,999', description: 'Powerful bagless vacuum', image: 'https://images.unsplash.com/photo-1558317374-067fb5f30001?w=400&h=400&fit=crop'},
+            {category: 'Home', title: 'Memory Foam Pillow', price: '₹1,299', description: 'Orthopedic neck support', image: 'https://images.unsplash.com/photo-1584100936595-c0654b55a2e2?w=400&h=400&fit=crop'},
+            {category: 'Home', title: 'Scented Candles Set', price: '₹899', description: 'Aromatherapy candles pack of 6', image: 'https://images.unsplash.com/photo-1602874801006-94c0f0c1f1cc?w=400&h=400&fit=crop'},
+            {category: 'Home', title: 'Indoor Plant Pot Set', price: '₹799', description: 'Ceramic pots with drainage', image: 'https://images.unsplash.com/photo-1485955900006-10f4d324d411?w=400&h=400&fit=crop'},
+            {category: 'Home', title: 'Laundry Basket', price: '₹599', description: 'Collapsible storage basket', image: 'https://images.unsplash.com/photo-1610557892470-55d9e80c0bce?w=400&h=400&fit=crop'},
+            {category: 'Home', title: 'Dinner Set 24-Piece', price: '₹3,499', description: 'Elegant ceramic dinnerware', image: 'https://images.unsplash.com/photo-1578500494198-246f612d3b3d?w=400&h=400&fit=crop'},
+            {category: 'Home', title: 'Water Bottle 1L', price: '₹499', description: 'Insulated stainless steel', image: 'https://images.unsplash.com/photo-1602143407151-7111542de6e8?w=400&h=400&fit=crop'},
 
-            {category: 'Fashion', emoji: '👕', title: 'Cotton T-Shirt Pack', price: '₹999', description: 'Combo of 3 premium t-shirts', asin: 'B08FC6MR62'},
-            {category: 'Fashion', emoji: '👖', title: 'Denim Jeans', price: '₹1,799', description: 'Slim fit stretchable jeans', asin: 'B08BHXQGM5'},
-            {category: 'Fashion', emoji: '👟', title: 'Running Shoes', price: '₹2,999', description: 'Lightweight sports shoes', asin: 'B08C7KG5LP'},
-            {category: 'Fashion', emoji: '🎒', title: 'Laptop Backpack', price: '₹1,499', description: 'Water resistant with USB port', asin: 'B09JQKRQHB'},
-            {category: 'Fashion', emoji: '⌚', title: 'Analog Watch', price: '₹2,499', description: 'Classic leather strap watch', asin: 'B08THFDRSZ'},
-            {category: 'Fashion', emoji: '🕶️', title: 'Sunglasses', price: '₹899', description: 'UV protection polarized', asin: 'B08FC6MR62'},
-            {category: 'Fashion', emoji: '👜', title: 'Handbag', price: '₹1,999', description: 'Stylish leather handbag', asin: 'B08BHXQGM5'},
-            {category: 'Fashion', emoji: '🧢', title: 'Baseball Cap', price: '₹499', description: 'Adjustable sports cap', asin: 'B08C7KG5LP'},
-            {category: 'Fashion', emoji: '🧣', title: 'Winter Scarf', price: '₹699', description: 'Soft woolen scarf', asin: 'B09JQKRQHB'},
-            {category: 'Fashion', emoji: '👔', title: 'Formal Tie Set', price: '₹799', description: 'Pack of 3 silk ties', asin: 'B08THFDRSZ'},
+            {category: 'Fashion', title: 'Cotton T-Shirt Pack', price: '₹999', description: 'Combo of 3 premium t-shirts', image: 'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400&h=400&fit=crop'},
+            {category: 'Fashion', title: 'Denim Jeans', price: '₹1,799', description: 'Slim fit stretchable jeans', image: 'https://images.unsplash.com/photo-1542272604-787c3835535d?w=400&h=400&fit=crop'},
+            {category: 'Fashion', title: 'Running Shoes', price: '₹2,999', description: 'Lightweight sports shoes', image: 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400&h=400&fit=crop'},
+            {category: 'Fashion', title: 'Laptop Backpack', price: '₹1,499', description: 'Water resistant with USB port', image: 'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=400&h=400&fit=crop'},
+            {category: 'Fashion', title: 'Analog Watch', price: '₹2,499', description: 'Classic leather strap watch', image: 'https://images.unsplash.com/photo-1524592094714-0f0654e20314?w=400&h=400&fit=crop'},
+            {category: 'Fashion', title: 'Sunglasses', price: '₹899', description: 'UV protection polarized', image: 'https://images.unsplash.com/photo-1511499767150-a48a237f0083?w=400&h=400&fit=crop'},
+            {category: 'Fashion', title: 'Handbag', price: '₹1,999', description: 'Stylish leather handbag', image: 'https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=400&h=400&fit=crop'},
+            {category: 'Fashion', title: 'Baseball Cap', price: '₹499', description: 'Adjustable sports cap', image: 'https://images.unsplash.com/photo-1588850561407-ed78c282e89b?w=400&h=400&fit=crop'},
+            {category: 'Fashion', title: 'Winter Scarf', price: '₹699', description: 'Soft woolen scarf', image: 'https://images.unsplash.com/photo-1520903920243-00d872a2d1c9?w=400&h=400&fit=crop'},
+            {category: 'Fashion', title: 'Formal Tie Set', price: '₹799', description: 'Pack of 3 silk ties', image: 'https://images.unsplash.com/photo-1589756823695-278bc8356c60?w=400&h=400&fit=crop'},
 
-            {category: 'Books', emoji: '📚', title: 'Self-Help Book', price: '₹399', description: 'Bestselling motivational book', asin: 'B08FC6MR62'},
-            {category: 'Books', emoji: '📖', title: 'Fiction Novel', price: '₹299', description: 'Award-winning fiction', asin: 'B08BHXQGM5'},
-            {category: 'Books', emoji: '📕', title: 'Cookbook', price: '₹499', description: 'Indian recipes collection', asin: 'B08C7KG5LP'},
-            {category: 'Books', emoji: '📗', title: 'Business Strategy Book', price: '₹599', description: 'Learn business fundamentals', asin: 'B09JQKRQHB'},
-            {category: 'Books', emoji: '📘', title: 'Programming Guide', price: '₹799', description: 'Complete coding tutorial', asin: 'B08THFDRSZ'},
-            {category: 'Books', emoji: '📙', title: 'Children Story Book', price: '₹249', description: 'Illustrated kids stories', asin: 'B08FC6MR62'},
-            {category: 'Books', emoji: '📔', title: 'Journal Notebook', price: '₹349', description: 'Premium quality diary', asin: 'B08BHXQGM5'},
-            {category: 'Books', emoji: '✏️', title: 'Pen Set', price: '₹299', description: 'Smooth writing pens pack', asin: 'B08C7KG5LP'},
-            {category: 'Books', emoji: '🖊️', title: 'Fountain Pen', price: '₹899', description: 'Luxury writing instrument', asin: 'B09JQKRQHB'},
-            {category: 'Books', emoji: '📝', title: 'Sticky Notes Set', price: '₹199', description: 'Colorful memo pads', asin: 'B08THFDRSZ'},
+            {category: 'Books', title: 'Self-Help Book', price: '₹399', description: 'Bestselling motivational book', image: 'https://images.unsplash.com/photo-1544947950-fa07a98d237f?w=400&h=400&fit=crop'},
+            {category: 'Books', title: 'Fiction Novel', price: '₹299', description: 'Award-winning fiction', image: 'https://images.unsplash.com/photo-1512820790803-83ca734da794?w=400&h=400&fit=crop'},
+            {category: 'Books', title: 'Cookbook', price: '₹499', description: 'Indian recipes collection', image: 'https://images.unsplash.com/photo-1589998059171-988d887df646?w=400&h=400&fit=crop'},
+            {category: 'Books', title: 'Business Strategy Book', price: '₹599', description: 'Learn business fundamentals', image: 'https://images.unsplash.com/photo-1553729459-efe14ef6055d?w=400&h=400&fit=crop'},
+            {category: 'Books', title: 'Programming Guide', price: '₹799', description: 'Complete coding tutorial', image: 'https://images.unsplash.com/photo-1515879218367-8466d910aaa4?w=400&h=400&fit=crop'},
+            {category: 'Books', title: 'Children Story Book', price: '₹249', description: 'Illustrated kids stories', image: 'https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=400&h=400&fit=crop'},
+            {category: 'Books', title: 'Journal Notebook', price: '₹349', description: 'Premium quality diary', image: 'https://images.unsplash.com/photo-1517842645767-c639042777db?w=400&h=400&fit=crop'},
+            {category: 'Books', title: 'Pen Set', price: '₹299', description: 'Smooth writing pens pack', image: 'https://images.unsplash.com/photo-1586075010923-2dd4570fb338?w=400&h=400&fit=crop'},
+            {category: 'Books', title: 'Fountain Pen', price: '₹899', description: 'Luxury writing instrument', image: 'https://images.unsplash.com/photo-1563298723-dcfebaa392e3?w=400&h=400&fit=crop'},
+            {category: 'Books', title: 'Sticky Notes Set', price: '₹199', description: 'Colorful memo pads', image: 'https://images.unsplash.com/photo-1587467512961-120760940315?w=400&h=400&fit=crop'},
 
-            {category: 'Sports', emoji: '⚽', title: 'Football', price: '₹799', description: 'Professional size 5 football', asin: 'B08FC6MR62'},
-            {category: 'Sports', emoji: '🏏', title: 'Cricket Bat', price: '₹2,499', description: 'Kashmir willow cricket bat', asin: 'B08BHXQGM5'},
-            {category: 'Sports', emoji: '🏸', title: 'Badminton Racket', price: '₹1,299', description: 'Lightweight carbon racket', asin: 'B08C7KG5LP'},
-            {category: 'Sports', emoji: '🎾', title: 'Tennis Ball Set', price: '₹499', description: 'Pack of 6 tennis balls', asin: 'B09JQKRQHB'},
-            {category: 'Sports', emoji: '🏋️', title: 'Dumbbell Set', price: '₹3,999', description: 'Adjustable weight dumbbells', asin: 'B08THFDRSZ'},
-            {category: 'Sports', emoji: '🧘', title: 'Yoga Mat', price: '₹899', description: 'Non-slip exercise mat', asin: 'B08FC6MR62'},
-            {category: 'Sports', emoji: '🏃', title: 'Resistance Bands', price: '₹699', description: 'Set of 5 workout bands', asin: 'B08BHXQGM5'},
-            {category: 'Sports', emoji: '🚴', title: 'Cycling Gloves', price: '₹599', description: 'Padded bike gloves', asin: 'B08C7KG5LP'},
-            {category: 'Sports', emoji: '⛹️', title: 'Basketball', price: '₹1,299', description: 'Outdoor rubber basketball', asin: 'B09JQKRQHB'},
-            {category: 'Sports', emoji: '🏊', title: 'Swimming Goggles', price: '₹499', description: 'Anti-fog swim goggles', asin: 'B08THFDRSZ'}
+            {category: 'Sports', title: 'Football', price: '₹799', description: 'Professional size 5 football', image: 'https://images.unsplash.com/photo-1614632537423-1e6c2e7e0aae?w=400&h=400&fit=crop'},
+            {category: 'Sports', title: 'Cricket Bat', price: '₹2,499', description: 'Kashmir willow cricket bat', image: 'https://images.unsplash.com/photo-1531415074968-036ba1b575da?w=400&h=400&fit=crop'},
+            {category: 'Sports', title: 'Badminton Racket', price: '₹1,299', description: 'Lightweight carbon racket', image: 'https://images.unsplash.com/photo-1626224583764-f87db24ac4ea?w=400&h=400&fit=crop'},
+            {category: 'Sports', title: 'Tennis Ball Set', price: '₹499', description: 'Pack of 6 tennis balls', image: 'https://images.unsplash.com/photo-1622163642998-1ea32b0bbc67?w=400&h=400&fit=crop'},
+            {category: 'Sports', title: 'Dumbbell Set', price: '₹3,999', description: 'Adjustable weight dumbbells', image: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?w=400&h=400&fit=crop'},
+            {category: 'Sports', title: 'Yoga Mat', price: '₹899', description: 'Non-slip exercise mat', image: 'https://images.unsplash.com/photo-1601925260368-ae2f83cf8b7f?w=400&h=400&fit=crop'},
+            {category: 'Sports', title: 'Resistance Bands', price: '₹699', description: 'Set of 5 workout bands', image: 'https://images.unsplash.com/photo-1598289431512-b97b0917affc?w=400&h=400&fit=crop'},
+            {category: 'Sports', title: 'Cycling Gloves', price: '₹599', description: 'Padded bike gloves', image: 'https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=400&h=400&fit=crop'},
+            {category: 'Sports', title: 'Basketball', price: '₹1,299', description: 'Outdoor rubber basketball', image: 'https://images.unsplash.com/photo-1546519638-68e109498ffc?w=400&h=400&fit=crop'},
+            {category: 'Sports', title: 'Swimming Goggles', price: '₹499', description: 'Anti-fog swim goggles', image: 'https://images.unsplash.com/photo-1530587191325-3db32d826c18?w=400&h=400&fit=crop'}
         ];
 
         const associateId = 'vashustore0b-21';
 
-        function createProductCard(product) {
-            const amazonUrl = `https://www.amazon.in/dp/${product.asin}?tag=${associateId}`;
+        function createProductCard(product, index) {
+            const asin = 'B08C7KG5LP'; // Default ASIN - you can customize per product
+            const amazonUrl = `https://www.amazon.in/dp/${asin}?tag=${associateId}`;
             return `
                 <div class="product-card" data-category="${product.category}">
-                    <div class="product-image">${product.emoji}</div>
+                    <div class="product-image">
+                        <img src="${product.image}" alt="${product.title}" loading="lazy">
+                    </div>
                     <span class="product-category">${product.category}</span>
                     <h3 class="product-title">${product.title}</h3>
                     <p class="product-description">${product.description}</p>
