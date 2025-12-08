@@ -3,7 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Best Deals - Amazon Products</title>
+    <meta name="description" content="Best Amazon deals and offers on electronics, home & kitchen, fashion, books, and sports products. Get up to 70% off on top-rated products with fast delivery.">
+    <meta name="keywords" content="amazon deals, best offers, electronics sale, home kitchen products, fashion deals, books online, sports equipment, online shopping india, amazon affiliate, discount products">
+    <meta name="author" content="Best Deals Store">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Best Amazon Deals - Up to 70% Off on Top Products">
+    <meta property="og:description" content="Shop the best deals on electronics, home & kitchen, fashion, books, and sports. Curated collection of top-rated Amazon products.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://vashujoshi1-cmd.github.io/amazon-affiliate-store/">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?w=1200&h=630&fit=crop">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Best Amazon Deals - Up to 70% Off">
+    <meta name="twitter:description" content="Curated collection of top-rated Amazon products with amazing discounts">
+    <link rel="canonical" href="https://vashujoshi1-cmd.github.io/amazon-affiliate-store/">
+    <title>Best Amazon Deals India 2024 - Up to 70% Off | Electronics, Fashion, Home & Kitchen</title>
+    
+    <!-- Schema.org markup for Google -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Best Amazon Deals Store",
+      "url": "https://vashujoshi1-cmd.github.io/amazon-affiliate-store/",
+      "description": "Curated collection of best Amazon deals and offers",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://vashujoshi1-cmd.github.io/amazon-affiliate-store/?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    }
+    </script>
+    
     <style>
         * {
             margin: 0;
@@ -34,6 +64,31 @@
         header p {
             font-size: 1.2em;
             opacity: 0.9;
+        }
+        .search-box {
+            max-width: 600px;
+            margin: 20px auto;
+            position: relative;
+        }
+        .search-box input {
+            width: 100%;
+            padding: 15px 50px 15px 20px;
+            border-radius: 30px;
+            border: none;
+            font-size: 1em;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        .search-box button {
+            position: absolute;
+            right: 5px;
+            top: 5px;
+            background: #FF9900;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 25px;
+            color: white;
+            cursor: pointer;
+            font-weight: bold;
         }
         .products-grid {
             display: grid;
@@ -135,27 +190,84 @@
             background: #FF9900;
             color: white;
         }
+        .stats-section {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin: 30px 0;
+            flex-wrap: wrap;
+        }
+        .stat-card {
+            background: white;
+            padding: 20px 40px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        .stat-number {
+            font-size: 2em;
+            font-weight: bold;
+            color: #667eea;
+        }
+        .stat-label {
+            color: #666;
+            margin-top: 5px;
+        }
         footer {
             text-align: center;
             color: white;
             padding: 30px;
             margin-top: 50px;
         }
-        .loading {
-            display: none;
-            text-align: center;
-            padding: 20px;
-            color: white;
-            font-size: 1.2em;
+        .seo-content {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            margin: 40px 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        .seo-content h2 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+        .seo-content p {
+            color: #666;
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+        .seo-content ul {
+            margin-left: 20px;
+            color: #666;
+            line-height: 1.8;
         }
     </style>
 </head>
 <body>
     <div class="container">
         <header>
-            <h1>🛍️ Best Amazon Deals</h1>
-            <p>Curated collection of top-rated products with real images</p>
+            <h1>🛍️ Best Amazon Deals India 2024</h1>
+            <p>Curated collection of top-rated products with up to 70% discount</p>
+            
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="Search for products..." onkeyup="searchProducts()">
+                <button onclick="searchProducts()">Search</button>
+            </div>
         </header>
+
+        <div class="stats-section">
+            <div class="stat-card">
+                <div class="stat-number">50+</div>
+                <div class="stat-label">Products</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">6</div>
+                <div class="stat-label">Categories</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">70%</div>
+                <div class="stat-label">Max Discount</div>
+            </div>
+        </div>
 
         <div class="filter-section">
             <button class="filter-btn active" onclick="filterProducts('all')">All Products</button>
@@ -166,12 +278,44 @@
             <button class="filter-btn" onclick="filterProducts('Sports')">Sports</button>
         </div>
 
-        <div class="loading" id="loading">Loading products...</div>
         <div class="products-grid" id="productsGrid"></div>
+
+        <div class="seo-content">
+            <h2>Best Amazon Deals and Offers in India 2024</h2>
+            <p>Welcome to your one-stop destination for the <strong>best Amazon deals</strong> and offers in India. We curate the top-rated products across multiple categories to help you save money while shopping online.</p>
+            
+            <h2>Why Shop With Us?</h2>
+            <ul>
+                <li><strong>Verified Products:</strong> All products are carefully selected and verified for quality</li>
+                <li><strong>Best Prices:</strong> Get up to 70% discount on premium products</li>
+                <li><strong>Multiple Categories:</strong> Electronics, Fashion, Home & Kitchen, Books, Sports and more</li>
+                <li><strong>Fast Delivery:</strong> Amazon Prime eligible products for quick delivery</li>
+                <li><strong>Secure Shopping:</strong> Safe and secure payment through Amazon</li>
+            </ul>
+
+            <h2>Popular Categories</h2>
+            <p><strong>Electronics:</strong> Find the latest gadgets including wireless headphones, smart watches, gaming accessories, keyboards, mice, power banks, and more at unbeatable prices.</p>
+            
+            <p><strong>Home & Kitchen:</strong> Upgrade your home with premium cookware, coffee makers, vacuum cleaners, dinner sets, and essential kitchen appliances.</p>
+            
+            <p><strong>Fashion:</strong> Stay stylish with our collection of clothing, footwear, accessories, watches, sunglasses, and bags for men and women.</p>
+            
+            <p><strong>Books:</strong> Explore bestselling books across fiction, self-help, business, programming, and children's categories.</p>
+            
+            <p><strong>Sports & Fitness:</strong> Get fit with our range of sports equipment, yoga mats, dumbbells, resistance bands, and outdoor sports gear.</p>
+
+            <h2>How to Get the Best Deals?</h2>
+            <p>Browse through our curated collection, use the category filters to find products you need, and click on "Buy on Amazon" to get the best prices. All products are linked directly to Amazon India for secure checkout and fast delivery.</p>
+        </div>
 
         <footer>
             <p>💡 As an Amazon Associate, I earn from qualifying purchases.</p>
             <p style="margin-top: 10px; opacity: 0.8;">© 2024 Best Deals Store. All rights reserved.</p>
+            <p style="margin-top: 10px; font-size: 0.9em;">
+                <a href="#" style="color: white; margin: 0 10px;">Privacy Policy</a> | 
+                <a href="#" style="color: white; margin: 0 10px;">Terms of Service</a> | 
+                <a href="#" style="color: white; margin: 0 10px;">Contact Us</a>
+            </p>
         </footer>
     </div>
 
@@ -234,9 +378,10 @@
         ];
 
         const associateId = 'vashustore0b-21';
+        let allProducts = products;
 
-        function createProductCard(product, index) {
-            const asin = 'B08C7KG5LP'; // Default ASIN - you can customize per product
+        function createProductCard(product) {
+            const asin = 'B08C7KG5LP';
             const amazonUrl = `https://www.amazon.in/dp/${asin}?tag=${associateId}`;
             return `
                 <div class="product-card" data-category="${product.category}">
@@ -255,8 +400,8 @@
         function renderProducts(filter = 'all') {
             const grid = document.getElementById('productsGrid');
             const filteredProducts = filter === 'all' 
-                ? products 
-                : products.filter(p => p.category === filter);
+                ? allProducts 
+                : allProducts.filter(p => p.category === filter);
             
             grid.innerHTML = filteredProducts.map(createProductCard).join('');
         }
@@ -266,11 +411,37 @@
                 btn.classList.remove('active');
             });
             event.target.classList.add('active');
+            allProducts = products;
             renderProducts(category);
+        }
+
+        function searchProducts() {
+            const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+            if (searchTerm === '') {
+                allProducts = products;
+            } else {
+                allProducts = products.filter(p => 
+                    p.title.toLowerCase().includes(searchTerm) || 
+                    p.description.toLowerCase().includes(searchTerm) ||
+                    p.category.toLowerCase().includes(searchTerm)
+                );
+            }
+            renderProducts('all');
+            document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+            document.querySelector('.filter-btn').classList.add('active');
         }
 
         // Initial render
         renderProducts();
+    </script>
+
+    <!-- Google Analytics (Replace with your tracking ID) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-XXXXXXXXXX');
     </script>
 </body>
 </html>
