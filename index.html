@@ -12,21 +12,8 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://vashujoshi1-cmd.github.io/amazon-affiliate-store/">
     <meta property="og:image" content="https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?w=1200&h=630&fit=crop">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Best Amazon Deals - Up to 70% Off">
-    <meta name="twitter:description" content="Curated collection of top-rated Amazon products with amazing discounts">
     <link rel="canonical" href="https://vashujoshi1-cmd.github.io/amazon-affiliate-store/">
     <title>Best Amazon Deals India 2024 - Up to 70% Off | Electronics, Fashion, Home & Kitchen</title>
-    
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebSite",
-      "name": "Best Amazon Deals Store",
-      "url": "https://vashujoshi1-cmd.github.io/amazon-affiliate-store/",
-      "description": "Curated collection of best Amazon deals and offers"
-    }
-    </script>
     
     <style>
         * {
@@ -41,14 +28,14 @@
             padding: 20px;
         }
         .container {
-            max-width: 1400px;
+            max-width: 1600px;
             margin: 0 auto;
         }
         header {
             text-align: center;
             color: white;
             padding: 40px 20px;
-            margin-bottom: 40px;
+            margin-bottom: 30px;
         }
         header h1 {
             font-size: 3em;
@@ -84,11 +71,119 @@
             cursor: pointer;
             font-weight: bold;
         }
+        .main-content {
+            display: flex;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .sidebar {
+            width: 280px;
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            height: fit-content;
+            position: sticky;
+            top: 20px;
+        }
+        .sidebar h3 {
+            color: #333;
+            margin-bottom: 15px;
+            font-size: 1.2em;
+            border-bottom: 2px solid #667eea;
+            padding-bottom: 10px;
+        }
+        .filter-group {
+            margin-bottom: 25px;
+        }
+        .filter-group label {
+            display: block;
+            margin: 10px 0;
+            cursor: pointer;
+            color: #555;
+            font-size: 0.95em;
+        }
+        .filter-group input[type="checkbox"] {
+            margin-right: 8px;
+            cursor: pointer;
+        }
+        .price-range {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+        .price-range input {
+            width: 100px;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .rating-filter label {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        .stars {
+            color: #FFA41C;
+            font-size: 1.1em;
+        }
+        .content-area {
+            flex: 1;
+        }
+        .filter-section {
+            background: white;
+            padding: 20px;
+            border-radius: 15px;
+            margin-bottom: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        .category-filters {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        .filter-btn {
+            background: #f0f0f0;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        .filter-btn:hover, .filter-btn.active {
+            background: #FF9900;
+            color: white;
+        }
+        .sort-section {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .sort-section select {
+            padding: 10px 15px;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+            cursor: pointer;
+            font-size: 0.95em;
+        }
+        .results-info {
+            background: white;
+            padding: 15px 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            color: #666;
+        }
         .products-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
             gap: 25px;
-            padding: 20px;
         }
         .product-card {
             background: white;
@@ -98,10 +193,28 @@
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             display: flex;
             flex-direction: column;
+            position: relative;
         }
         .product-card:hover {
             transform: translateY(-10px);
             box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+        }
+        .badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: #FF9900;
+            color: white;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.8em;
+            font-weight: bold;
+        }
+        .badge.bestseller {
+            background: #FF6B6B;
+        }
+        .badge.deal {
+            background: #4ECDC4;
         }
         .product-image {
             width: 100%;
@@ -124,33 +237,71 @@
         .product-card:hover .product-image img {
             transform: scale(1.1);
         }
+        .product-brand {
+            color: #007185;
+            font-size: 0.85em;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
         .product-title {
-            font-size: 1.1em;
+            font-size: 1.05em;
             font-weight: 600;
             color: #333;
             margin-bottom: 10px;
-            min-height: 50px;
+            min-height: 45px;
+            line-height: 1.4;
         }
         .product-category {
             display: inline-block;
             background: #667eea;
             color: white;
-            padding: 5px 12px;
-            border-radius: 20px;
-            font-size: 0.8em;
+            padding: 4px 10px;
+            border-radius: 15px;
+            font-size: 0.75em;
             margin-bottom: 10px;
         }
+        .rating-section {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 10px;
+        }
+        .stars {
+            color: #FFA41C;
+            font-size: 1em;
+        }
+        .rating-count {
+            color: #007185;
+            font-size: 0.85em;
+        }
         .product-price {
-            font-size: 1.5em;
+            font-size: 1.6em;
             color: #B12704;
             font-weight: bold;
             margin: 10px 0;
+        }
+        .original-price {
+            text-decoration: line-through;
+            color: #999;
+            font-size: 0.6em;
+            margin-left: 8px;
+        }
+        .discount {
+            color: #CC0C39;
+            font-size: 0.5em;
+            margin-left: 5px;
         }
         .product-description {
             color: #666;
             font-size: 0.9em;
             margin-bottom: 15px;
             flex-grow: 1;
+        }
+        .delivery-info {
+            color: #007600;
+            font-size: 0.85em;
+            margin-bottom: 10px;
+            font-weight: 500;
         }
         .buy-button {
             display: block;
@@ -170,46 +321,16 @@
             background: linear-gradient(135deg, #FF6600 0%, #FF3300 100%);
             transform: scale(1.05);
         }
-        .filter-section {
-            text-align: center;
-            margin-bottom: 30px;
-        }
-        .filter-btn {
-            background: white;
+        .clear-filters {
+            background: #FF6B6B;
+            color: white;
             border: none;
             padding: 10px 20px;
-            margin: 5px;
-            border-radius: 25px;
+            border-radius: 8px;
             cursor: pointer;
+            width: 100%;
+            margin-top: 15px;
             font-weight: 600;
-            transition: all 0.3s ease;
-        }
-        .filter-btn:hover, .filter-btn.active {
-            background: #FF9900;
-            color: white;
-        }
-        .stats-section {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            margin: 30px 0;
-            flex-wrap: wrap;
-        }
-        .stat-card {
-            background: white;
-            padding: 20px 40px;
-            border-radius: 15px;
-            text-align: center;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-        }
-        .stat-number {
-            font-size: 2em;
-            font-weight: bold;
-            color: #667eea;
-        }
-        .stat-label {
-            color: #666;
-            margin-top: 5px;
         }
         footer {
             text-align: center;
@@ -217,26 +338,14 @@
             padding: 30px;
             margin-top: 50px;
         }
-        .seo-content {
-            background: white;
-            padding: 40px;
-            border-radius: 15px;
-            margin: 40px 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-        }
-        .seo-content h2 {
-            color: #333;
-            margin-bottom: 20px;
-        }
-        .seo-content p {
-            color: #666;
-            line-height: 1.8;
-            margin-bottom: 15px;
-        }
-        .seo-content ul {
-            margin-left: 20px;
-            color: #666;
-            line-height: 1.8;
+        @media (max-width: 768px) {
+            .main-content {
+                flex-direction: column;
+            }
+            .sidebar {
+                width: 100%;
+                position: relative;
+            }
         }
     </style>
 </head>
@@ -248,184 +357,324 @@
             
             <div class="search-box">
                 <input type="text" id="searchInput" placeholder="Search for products..." onkeyup="searchProducts()">
-                <button onclick="searchProducts()">Search</button>
+                <button onclick="searchProducts()">🔍 Search</button>
             </div>
         </header>
 
-        <div class="stats-section">
-            <div class="stat-card">
-                <div class="stat-number">50+</div>
-                <div class="stat-label">Products</div>
+        <div class="main-content">
+            <!-- Sidebar Filters -->
+            <aside class="sidebar">
+                <h3>🔍 Filters</h3>
+                
+                <!-- Category Filter -->
+                <div class="filter-group">
+                    <h4 style="margin-bottom: 10px; color: #555;">Category</h4>
+                    <label><input type="checkbox" value="Electronics" onchange="applyFilters()"> Electronics</label>
+                    <label><input type="checkbox" value="Home" onchange="applyFilters()"> Home & Kitchen</label>
+                    <label><input type="checkbox" value="Fashion" onchange="applyFilters()"> Fashion</label>
+                    <label><input type="checkbox" value="Books" onchange="applyFilters()"> Books</label>
+                    <label><input type="checkbox" value="Sports" onchange="applyFilters()"> Sports</label>
+                </div>
+
+                <!-- Brand Filter -->
+                <div class="filter-group">
+                    <h4 style="margin-bottom: 10px; color: #555;">Brand</h4>
+                    <label><input type="checkbox" value="Sony" onchange="applyFilters()"> Sony</label>
+                    <label><input type="checkbox" value="Samsung" onchange="applyFilters()"> Samsung</label>
+                    <label><input type="checkbox" value="Boat" onchange="applyFilters()"> Boat</label>
+                    <label><input type="checkbox" value="Nike" onchange="applyFilters()"> Nike</label>
+                    <label><input type="checkbox" value="Adidas" onchange="applyFilters()"> Adidas</label>
+                    <label><input type="checkbox" value="Prestige" onchange="applyFilters()"> Prestige</label>
+                    <label><input type="checkbox" value="Philips" onchange="applyFilters()"> Philips</label>
+                </div>
+
+                <!-- Rating Filter -->
+                <div class="filter-group rating-filter">
+                    <h4 style="margin-bottom: 10px; color: #555;">Customer Rating</h4>
+                    <label><input type="checkbox" value="4" onchange="applyFilters()"> <span class="stars">★★★★☆</span> 4★ & above</label>
+                    <label><input type="checkbox" value="3" onchange="applyFilters()"> <span class="stars">★★★☆☆</span> 3★ & above</label>
+                    <label><input type="checkbox" value="2" onchange="applyFilters()"> <span class="stars">★★☆☆☆</span> 2★ & above</label>
+                </div>
+
+                <!-- Price Filter -->
+                <div class="filter-group">
+                    <h4 style="margin-bottom: 10px; color: #555;">Price Range</h4>
+                    <div class="price-range">
+                        <input type="number" id="minPrice" placeholder="Min" onchange="applyFilters()">
+                        <span>-</span>
+                        <input type="number" id="maxPrice" placeholder="Max" onchange="applyFilters()">
+                    </div>
+                </div>
+
+                <!-- Discount Filter -->
+                <div class="filter-group">
+                    <h4 style="margin-bottom: 10px; color: #555;">Discount</h4>
+                    <label><input type="checkbox" value="50" onchange="applyFilters()"> 50% or more</label>
+                    <label><input type="checkbox" value="40" onchange="applyFilters()"> 40% or more</label>
+                    <label><input type="checkbox" value="30" onchange="applyFilters()"> 30% or more</label>
+                    <label><input type="checkbox" value="20" onchange="applyFilters()"> 20% or more</label>
+                </div>
+
+                <button class="clear-filters" onclick="clearAllFilters()">Clear All Filters</button>
+            </aside>
+
+            <!-- Main Content -->
+            <div class="content-area">
+                <div class="filter-section">
+                    <div class="category-filters">
+                        <button class="filter-btn active" onclick="quickFilter('all')">All Products</button>
+                        <button class="filter-btn" onclick="quickFilter('bestseller')">🔥 Bestsellers</button>
+                        <button class="filter-btn" onclick="quickFilter('deal')">💰 Today's Deals</button>
+                    </div>
+                    
+                    <div class="sort-section">
+                        <label for="sortSelect" style="color: #666; font-weight: 600;">Sort by:</label>
+                        <select id="sortSelect" onchange="sortProducts()">
+                            <option value="featured">Featured</option>
+                            <option value="price-low">Price: Low to High</option>
+                            <option value="price-high">Price: High to Low</option>
+                            <option value="rating">Customer Rating</option>
+                            <option value="newest">Newest Arrivals</option>
+                            <option value="discount">Discount: High to Low</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="results-info" id="resultsInfo">
+                    Showing <strong id="resultCount">50</strong> results
+                </div>
+
+                <div class="products-grid" id="productsGrid"></div>
             </div>
-            <div class="stat-card">
-                <div class="stat-number">6</div>
-                <div class="stat-label">Categories</div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-number">70%</div>
-                <div class="stat-label">Max Discount</div>
-            </div>
-        </div>
-
-        <div class="filter-section">
-            <button class="filter-btn active" onclick="filterProducts('all')">All Products</button>
-            <button class="filter-btn" onclick="filterProducts('Electronics')">Electronics</button>
-            <button class="filter-btn" onclick="filterProducts('Home')">Home & Kitchen</button>
-            <button class="filter-btn" onclick="filterProducts('Fashion')">Fashion</button>
-            <button class="filter-btn" onclick="filterProducts('Books')">Books</button>
-            <button class="filter-btn" onclick="filterProducts('Sports')">Sports</button>
-        </div>
-
-        <div class="products-grid" id="productsGrid"></div>
-
-        <div class="seo-content">
-            <h2>Best Amazon Deals and Offers in India 2024</h2>
-            <p>Welcome to your one-stop destination for the <strong>best Amazon deals</strong> and offers in India. We curate the top-rated products across multiple categories to help you save money while shopping online.</p>
-            
-            <h2>Why Shop With Us?</h2>
-            <ul>
-                <li><strong>Verified Products:</strong> All products are carefully selected and verified for quality</li>
-                <li><strong>Best Prices:</strong> Get up to 70% discount on premium products</li>
-                <li><strong>Multiple Categories:</strong> Electronics, Fashion, Home & Kitchen, Books, Sports and more</li>
-                <li><strong>Fast Delivery:</strong> Amazon Prime eligible products for quick delivery</li>
-                <li><strong>Secure Shopping:</strong> Safe and secure payment through Amazon</li>
-            </ul>
-
-            <h2>Popular Categories</h2>
-            <p><strong>Electronics:</strong> Find the latest gadgets including wireless headphones, smart watches, gaming accessories, keyboards, mice, power banks, and more at unbeatable prices.</p>
-            
-            <p><strong>Home & Kitchen:</strong> Upgrade your home with premium cookware, coffee makers, vacuum cleaners, dinner sets, and essential kitchen appliances.</p>
-            
-            <p><strong>Fashion:</strong> Stay stylish with our collection of clothing, footwear, accessories, watches, sunglasses, and bags for men and women.</p>
-            
-            <p><strong>Books:</strong> Explore bestselling books across fiction, self-help, business, programming, and children's categories.</p>
-            
-            <p><strong>Sports & Fitness:</strong> Get fit with our range of sports equipment, yoga mats, dumbbells, resistance bands, and outdoor sports gear.</p>
-
-            <h2>How to Get the Best Deals?</h2>
-            <p>Browse through our curated collection, use the category filters to find products you need, and click on "Buy on Amazon" to get the best prices. All products are linked directly to Amazon India for secure checkout and fast delivery.</p>
         </div>
 
         <footer>
             <p>💡 As an Amazon Associate, I earn from qualifying purchases.</p>
             <p style="margin-top: 10px; opacity: 0.8;">© 2024 Best Deals Store. All rights reserved.</p>
-            <p style="margin-top: 10px; font-size: 0.9em;">
-                <a href="#" style="color: white; margin: 0 10px;">Privacy Policy</a> | 
-                <a href="#" style="color: white; margin: 0 10px;">Terms of Service</a> | 
-                <a href="#" style="color: white; margin: 0 10px;">Contact Us</a>
-            </p>
         </footer>
     </div>
 
     <script>
         const products = [
-            {category: 'Electronics', title: 'Wireless Bluetooth Headphones', price: '₹2,999', description: 'Premium sound quality with noise cancellation', image: 'https://m.media-amazon.com/images/I/61CGHv6kmWL._AC_UY218_.jpg', asin: 'B0BXQKJW1F'},
-            {category: 'Electronics', title: 'Smartphone Stand', price: '₹499', description: 'Adjustable phone holder for desk', image: 'https://m.media-amazon.com/images/I/61l7jqx7AFL._AC_UY218_.jpg', asin: 'B08BHXQGM5'},
-            {category: 'Electronics', title: 'Smart Watch', price: '₹4,999', description: 'Fitness tracker with heart rate monitor', image: 'https://m.media-amazon.com/images/I/61ZjlBOp+rL._AC_UY218_.jpg', asin: 'B0DCXWLKFQ'},
-            {category: 'Electronics', title: 'Wireless Mouse', price: '₹799', description: 'Ergonomic design with silent clicks', image: 'https://m.media-amazon.com/images/I/51h3VNYdITL._AC_UY218_.jpg', asin: 'B07W6JD3V3'},
-            {category: 'Electronics', title: 'Mechanical Keyboard', price: '₹3,499', description: 'RGB backlit gaming keyboard', image: 'https://m.media-amazon.com/images/I/71dA6+d-XML._AC_UY218_.jpg', asin: 'B0CXHXFKL'},
-            {category: 'Electronics', title: 'Power Bank 20000mAh', price: '₹1,999', description: 'Fast charging portable charger', image: 'https://m.media-amazon.com/images/I/41Smfb0BqjL._AC_UY218_.jpg', asin: 'B08THFDRSZ'},
-            {category: 'Electronics', title: 'Gaming Controller', price: '₹2,499', description: 'Compatible with PC and console', image: 'https://m.media-amazon.com/images/I/61u3FNJohnL._AC_UY218_.jpg', asin: 'B08FC6MR62'},
-            {category: 'Electronics', title: 'Webcam HD 1080p', price: '₹2,799', description: 'Perfect for video calls and streaming', image: 'https://m.media-amazon.com/images/I/51h-1qQFwBL._AC_UY218_.jpg', asin: 'B088D2TW77'},
-            {category: 'Electronics', title: 'Bluetooth Speaker', price: '₹1,799', description: 'Waterproof portable speaker', image: 'https://m.media-amazon.com/images/I/61O1objJJeL._AC_UY218_.jpg', asin: 'B0CXVFB8YD'},
-            {category: 'Electronics', title: 'Smart LED Bulb', price: '₹699', description: 'WiFi enabled color changing bulb', image: 'https://m.media-amazon.com/images/I/41VqYt7AICL._AC_UY218_.jpg', asin: 'B0BWVR8QVJ'},
+            {category: 'Electronics', brand: 'Boat', title: 'Wireless Bluetooth Headphones', price: 2999, originalPrice: 5999, rating: 4.5, reviews: 12543, description: 'Premium sound quality with noise cancellation', image: 'https://m.media-amazon.com/images/I/61CGHv6kmWL._AC_UY218_.jpg', asin: 'B0BXQKJW1F', badge: 'bestseller'},
+            {category: 'Electronics', brand: 'Samsung', title: 'Smartphone Stand', price: 499, originalPrice: 999, rating: 4.2, reviews: 3421, description: 'Adjustable phone holder for desk', image: 'https://m.media-amazon.com/images/I/61l7jqx7AFL._AC_UY218_.jpg', asin: 'B08BHXQGM5', badge: 'deal'},
+            {category: 'Electronics', brand: 'Boat', title: 'Smart Watch', price: 4999, originalPrice: 9999, rating: 4.3, reviews: 8765, description: 'Fitness tracker with heart rate monitor', image: 'https://m.media-amazon.com/images/I/61ZjlBOp+rL._AC_UY218_.jpg', asin: 'B0DCXWLKFQ', badge: 'bestseller'},
+            {category: 'Electronics', brand: 'Logitech', title: 'Wireless Mouse', price: 799, originalPrice: 1499, rating: 4.4, reviews: 5432, description: 'Ergonomic design with silent clicks', image: 'https://m.media-amazon.com/images/I/51h3VNYdITL._AC_UY218_.jpg', asin: 'B07W6JD3V3', badge: ''},
+            {category: 'Electronics', brand: 'Cosmic Byte', title: 'Mechanical Keyboard', price: 3499, originalPrice: 6999, rating: 4.6, reviews: 4321, description: 'RGB backlit gaming keyboard', image: 'https://m.media-amazon.com/images/I/71dA6+d-XML._AC_UY218_.jpg', asin: 'B0CXHXFKL', badge: 'deal'},
+            {category: 'Electronics', brand: 'Mi', title: 'Power Bank 20000mAh', price: 1999, originalPrice: 3999, rating: 4.5, reviews: 9876, description: 'Fast charging portable charger', image: 'https://m.media-amazon.com/images/I/41Smfb0BqjL._AC_UY218_.jpg', asin: 'B08THFDRSZ', badge: 'bestseller'},
+            {category: 'Electronics', brand: 'Redgear', title: 'Gaming Controller', price: 2499, originalPrice: 4999, rating: 4.3, reviews: 2345, description: 'Compatible with PC and console', image: 'https://m.media-amazon.com/images/I/61u3FNJohnL._AC_UY218_.jpg', asin: 'B08FC6MR62', badge: ''},
+            {category: 'Electronics', brand: 'Logitech', title: 'Webcam HD 1080p', price: 2799, originalPrice: 5999, rating: 4.4, reviews: 3456, description: 'Perfect for video calls and streaming', image: 'https://m.media-amazon.com/images/I/51h-1qQFwBL._AC_UY218_.jpg', asin: 'B088D2TW77', badge: 'deal'},
+            {category: 'Electronics', brand: 'JBL', title: 'Bluetooth Speaker', price: 1799, originalPrice: 3999, rating: 4.6, reviews: 7654, description: 'Waterproof portable speaker', image: 'https://m.media-amazon.com/images/I/61O1objJJeL._AC_UY218_.jpg', asin: 'B0CXVFB8YD', badge: 'bestseller'},
+            {category: 'Electronics', brand: 'Philips', title: 'Smart LED Bulb', price: 699, originalPrice: 1299, rating: 4.2, reviews: 4567, description: 'WiFi enabled color changing bulb', image: 'https://m.media-amazon.com/images/I/41VqYt7AICL._AC_UY218_.jpg', asin: 'B0BWVR8QVJ', badge: ''},
 
-            {category: 'Home', title: 'Coffee Maker', price: '₹3,999', description: 'Automatic drip coffee machine', image: 'https://m.media-amazon.com/images/I/61Iq+4GKRSL._AC_UY218_.jpg', asin: 'B0CQXB7KQF'},
-            {category: 'Home', title: 'Non-Stick Cookware Set', price: '₹2,999', description: '5-piece premium cookware', image: 'https://m.media-amazon.com/images/I/71VncILnH9L._AC_UY218_.jpg', asin: 'B0CXHXFKL'},
-            {category: 'Home', title: 'Kitchen Knife Set', price: '₹1,499', description: 'Professional chef knives', image: 'https://m.media-amazon.com/images/I/71xWkJIw7LL._AC_UY218_.jpg', asin: 'B0BHXQGM5'},
-            {category: 'Home', title: 'Vacuum Cleaner', price: '₹5,999', description: 'Powerful bagless vacuum', image: 'https://m.media-amazon.com/images/I/51Iq+4GKRSL._AC_UY218_.jpg', asin: 'B0CQXB7KQF'},
-            {category: 'Home', title: 'Memory Foam Pillow', price: '₹1,299', description: 'Orthopedic neck support', image: 'https://m.media-amazon.com/images/I/71VncILnH9L._AC_UY218_.jpg', asin: 'B0CXHXFKL'},
-            {category: 'Home', title: 'Scented Candles Set', price: '₹899', description: 'Aromatherapy candles pack of 6', image: 'https://m.media-amazon.com/images/I/71xWkJIw7LL._AC_UY218_.jpg', asin: 'B0BHXQGM5'},
-            {category: 'Home', title: 'Indoor Plant Pot Set', price: '₹799', description: 'Ceramic pots with drainage', image: 'https://m.media-amazon.com/images/I/61Iq+4GKRSL._AC_UY218_.jpg', asin: 'B0CQXB7KQF'},
-            {category: 'Home', title: 'Laundry Basket', price: '₹599', description: 'Collapsible storage basket', image: 'https://m.media-amazon.com/images/I/71VncILnH9L._AC_UY218_.jpg', asin: 'B0CXHXFKL'},
-            {category: 'Home', title: 'Dinner Set 24-Piece', price: '₹3,499', description: 'Elegant ceramic dinnerware', image: 'https://m.media-amazon.com/images/I/71xWkJIw7LL._AC_UY218_.jpg', asin: 'B0BHXQGM5'},
-            {category: 'Home', title: 'Water Bottle 1L', price: '₹499', description: 'Insulated stainless steel', image: 'https://m.media-amazon.com/images/I/61Iq+4GKRSL._AC_UY218_.jpg', asin: 'B0CQXB7KQF'},
+            {category: 'Home', brand: 'Philips', title: 'Coffee Maker', price: 3999, originalPrice: 7999, rating: 4.5, reviews: 2345, description: 'Automatic drip coffee machine', image: 'https://m.media-amazon.com/images/I/61Iq+4GKRSL._AC_UY218_.jpg', asin: 'B0CQXB7KQF', badge: 'deal'},
+            {category: 'Home', brand: 'Prestige', title: 'Non-Stick Cookware Set', price: 2999, originalPrice: 5999, rating: 4.4, reviews: 5678, description: '5-piece premium cookware', image: 'https://m.media-amazon.com/images/I/71VncILnH9L._AC_UY218_.jpg', asin: 'B0CXHXFKL', badge: 'bestseller'},
+            {category: 'Home', brand: 'Prestige', title: 'Kitchen Knife Set', price: 1499, originalPrice: 2999, rating: 4.3, reviews: 3456, description: 'Professional chef knives', image: 'https://m.media-amazon.com/images/I/71xWkJIw7LL._AC_UY218_.jpg', asin: 'B0BHXQGM5', badge: ''},
+            {category: 'Home', brand: 'Eureka Forbes', title: 'Vacuum Cleaner', price: 5999, originalPrice: 11999, rating: 4.6, reviews: 4321, description: 'Powerful bagless vacuum', image: 'https://m.media-amazon.com/images/I/51Iq+4GKRSL._AC_UY218_.jpg', asin: 'B0CQXB7KQF', badge: 'bestseller'},
+            {category: 'Home', brand: 'Sleepwell', title: 'Memory Foam Pillow', price: 1299, originalPrice: 2599, rating: 4.5, reviews: 6789, description: 'Orthopedic neck support', image: 'https://m.media-amazon.com/images/I/71VncILnH9L._AC_UY218_.jpg', asin: 'B0CXHXFKL', badge: 'deal'},
+            {category: 'Home', brand: 'Iris', title: 'Scented Candles Set', price: 899, originalPrice: 1799, rating: 4.2, reviews: 2345, description: 'Aromatherapy candles pack of 6', image: 'https://m.media-amazon.com/images/I/71xWkJIw7LL._AC_UY218_.jpg', asin: 'B0BHXQGM5', badge: ''},
+            {category: 'Home', brand: 'Ceramic', title: 'Indoor Plant Pot Set', price: 799, originalPrice: 1599, rating: 4.3, reviews: 1234, description: 'Ceramic pots with drainage', image: 'https://m.media-amazon.com/images/I/61Iq+4GKRSL._AC_UY218_.jpg', asin: 'B0CQXB7KQF', badge: ''},
+            {category: 'Home', brand: 'Amazon Basics', title: 'Laundry Basket', price: 599, originalPrice: 1199, rating: 4.1, reviews: 3456, description: 'Collapsible storage basket', image: 'https://m.media-amazon.com/images/I/71VncILnH9L._AC_UY218_.jpg', asin: 'B0CXHXFKL', badge: 'deal'},
+            {category: 'Home', brand: 'Larah', title: 'Dinner Set 24-Piece', price: 3499, originalPrice: 6999, rating: 4.4, reviews: 2345, description: 'Elegant ceramic dinnerware', image: 'https://m.media-amazon.com/images/I/71xWkJIw7LL._AC_UY218_.jpg', asin: 'B0BHXQGM5', badge: 'bestseller'},
+            {category: 'Home', brand: 'Milton', title: 'Water Bottle 1L', price: 499, originalPrice: 999, rating: 4.5, reviews: 8765, description: 'Insulated stainless steel', image: 'https://m.media-amazon.com/images/I/61Iq+4GKRSL._AC_UY218_.jpg', asin: 'B0CQXB7KQF', badge: ''},
 
-            {category: 'Fashion', title: 'Cotton T-Shirt Pack', price: '₹999', description: 'Combo of 3 premium t-shirts', image: 'https://m.media-amazon.com/images/I/61pglWl7oYL._AC_UL320_.jpg', asin: 'B0CXHXFKL'},
-            {category: 'Fashion', title: 'Denim Jeans', price: '₹1,799', description: 'Slim fit stretchable jeans', image: 'https://m.media-amazon.com/images/I/71VncILnH9L._AC_UL320_.jpg', asin: 'B0BHXQGM5'},
-            {category: 'Fashion', title: 'Running Shoes', price: '₹2,999', description: 'Lightweight sports shoes', image: 'https://m.media-amazon.com/images/I/71xWkJIw7LL._AC_UL320_.jpg', asin: 'B0CQXB7KQF'},
-            {category: 'Fashion', title: 'Laptop Backpack', price: '₹1,499', description: 'Water resistant with USB port', image: 'https://m.media-amazon.com/images/I/81D+3kWUeaL._AC_UL320_.jpg', asin: 'B0CXHXFKL'},
-            {category: 'Fashion', title: 'Analog Watch', price: '₹2,499', description: 'Classic leather strap watch', image: 'https://m.media-amazon.com/images/I/71VncILnH9L._AC_UL320_.jpg', asin: 'B0BHXQGM5'},
-            {category: 'Fashion', title: 'Sunglasses', price: '₹899', description: 'UV protection polarized', image: 'https://m.media-amazon.com/images/I/61pglWl7oYL._AC_UL320_.jpg', asin: 'B0CQXB7KQF'},
-            {category: 'Fashion', title: 'Handbag', price: '₹1,999', description: 'Stylish leather handbag', image: 'https://m.media-amazon.com/images/I/71xWkJIw7LL._AC_UL320_.jpg', asin: 'B0CXHXFKL'},
-            {category: 'Fashion', title: 'Baseball Cap', price: '₹499', description: 'Adjustable sports cap', image: 'https://m.media-amazon.com/images/I/71VncILnH9L._AC_UL320_.jpg', asin: 'B0BHXQGM5'},
-            {category: 'Fashion', title: 'Winter Scarf', price: '₹699', description: 'Soft woolen scarf', image: 'https://m.media-amazon.com/images/I/61pglWl7oYL._AC_UL320_.jpg', asin: 'B0CQXB7KQF'},
-            {category: 'Fashion', title: 'Formal Tie Set', price: '₹799', description: 'Pack of 3 silk ties', image: 'https://m.media-amazon.com/images/I/71xWkJIw7LL._AC_UL320_.jpg', asin: 'B0CXHXFKL'},
+            {category: 'Fashion', brand: 'Levi\'s', title: 'Cotton T-Shirt Pack', price: 999, originalPrice: 1999, rating: 4.3, reviews: 5432, description: 'Combo of 3 premium t-shirts', image: 'https://m.media-amazon.com/images/I/61pglWl7oYL._AC_UL320_.jpg', asin: 'B0CXHXFKL', badge: 'deal'},
+            {category: 'Fashion', brand: 'Levi\'s', title: 'Denim Jeans', price: 1799, originalPrice: 3599, rating: 4.5, reviews: 6789, description: 'Slim fit stretchable jeans', image: 'https://m.media-amazon.com/images/I/71VncILnH9L._AC_UL320_.jpg', asin: 'B0BHXQGM5', badge: 'bestseller'},
+            {category: 'Fashion', brand: 'Nike', title: 'Running Shoes', price: 2999, originalPrice: 5999, rating: 4.6, reviews: 9876, description: 'Lightweight sports shoes', image: 'https://m.media-amazon.com/images/I/71xWkJIw7LL._AC_UL320_.jpg', asin: 'B0CQXB7KQF', badge: 'bestseller'},
+            {category: 'Fashion', brand: 'American Tourister', title: 'Laptop Backpack', price: 1499, originalPrice: 2999, rating: 4.4, reviews: 4321, description: 'Water resistant with USB port', image: 'https://m.media-amazon.com/images/I/81D+3kWUeaL._AC_UL320_.jpg', asin: 'B0CXHXFKL', badge: 'deal'},
+            {category: 'Fashion', brand: 'Titan', title: 'Analog Watch', price: 2499, originalPrice: 4999, rating: 4.5, reviews: 7654, description: 'Classic leather strap watch', image: 'https://m.media-amazon.com/images/I/71VncILnH9L._AC_UL320_.jpg', asin: 'B0BHXQGM5', badge: 'bestseller'},
+            {category: 'Fashion', brand: 'Ray-Ban', title: 'Sunglasses', price: 899, originalPrice: 1799, rating: 4.3, reviews: 3456, description: 'UV protection polarized', image: 'https://m.media-amazon.com/images/I/61pglWl7oYL._AC_UL320_.jpg', asin: 'B0CQXB7KQF', badge: ''},
+            {category: 'Fashion', brand: 'Lavie', title: 'Handbag', price: 1999, originalPrice: 3999, rating: 4.4, reviews: 5678, description: 'Stylish leather handbag', image: 'https://m.media-amazon.com/images/I/71xWkJIw7LL._AC_UL320_.jpg', asin: 'B0CXHXFKL', badge: 'deal'},
+            {category: 'Fashion', brand: 'Adidas', title: 'Baseball Cap', price: 499, originalPrice: 999, rating: 4.2, reviews: 2345, description: 'Adjustable sports cap', image: 'https://m.media-amazon.com/images/I/71VncILnH9L._AC_UL320_.jpg', asin: 'B0BHXQGM5', badge: ''},
+            {category: 'Fashion', brand: 'FabIndia', title: 'Winter Scarf', price: 699, originalPrice: 1399, rating: 4.3, reviews: 1234, description: 'Soft woolen scarf', image: 'https://m.media-amazon.com/images/I/61pglWl7oYL._AC_UL320_.jpg', asin: 'B0CQXB7KQF', badge: ''},
+            {category: 'Fashion', brand: 'Park Avenue', title: 'Formal Tie Set', price: 799, originalPrice: 1599, rating: 4.4, reviews: 3456, description: 'Pack of 3 silk ties', image: 'https://m.media-amazon.com/images/I/71xWkJIw7LL._AC_UL320_.jpg', asin: 'B0CXHXFKL', badge: 'deal'},
 
-            {category: 'Books', title: 'Self-Help Book', price: '₹399', description: 'Bestselling motivational book', image: 'https://m.media-amazon.com/images/I/71g2ednj0JL._AC_UY218_.jpg', asin: 'B0BHXQGM5'},
-            {category: 'Books', title: 'Fiction Novel', price: '₹299', description: 'Award-winning fiction', image: 'https://m.media-amazon.com/images/I/81YkqyaFVEL._AC_UY218_.jpg', asin: 'B0CQXB7KQF'},
-            {category: 'Books', title: 'Cookbook', price: '₹499', description: 'Indian recipes collection', image: 'https://m.media-amazon.com/images/I/71g2ednj0JL._AC_UY218_.jpg', asin: 'B0CXHXFKL'},
-            {category: 'Books', title: 'Business Strategy Book', price: '₹599', description: 'Learn business fundamentals', image: 'https://m.media-amazon.com/images/I/81YkqyaFVEL._AC_UY218_.jpg', asin: 'B0BHXQGM5'},
-            {category: 'Books', title: 'Programming Guide', price: '₹799', description: 'Complete coding tutorial', image: 'https://m.media-amazon.com/images/I/71g2ednj0JL._AC_UY218_.jpg', asin: 'B0CQXB7KQF'},
-            {category: 'Books', title: 'Children Story Book', price: '₹249', description: 'Illustrated kids stories', image: 'https://m.media-amazon.com/images/I/81YkqyaFVEL._AC_UY218_.jpg', asin: 'B0CXHXFKL'},
-            {category: 'Books', title: 'Journal Notebook', price: '₹349', description: 'Premium quality diary', image: 'https://m.media-amazon.com/images/I/71g2ednj0JL._AC_UY218_.jpg', asin: 'B0BHXQGM5'},
-            {category: 'Books', title: 'Pen Set', price: '₹299', description: 'Smooth writing pens pack', image: 'https://m.media-amazon.com/images/I/81YkqyaFVEL._AC_UY218_.jpg', asin: 'B0CQXB7KQF'},
-            {category: 'Books', title: 'Fountain Pen', price: '₹899', description: 'Luxury writing instrument', image: 'https://m.media-amazon.com/images/I/71g2ednj0JL._AC_UY218_.jpg', asin: 'B0CXHXFKL'},
-            {category: 'Books', title: 'Sticky Notes Set', price: '₹199', description: 'Colorful memo pads', image: 'https://m.media-amazon.com/images/I/81YkqyaFVEL._AC_UY218_.jpg', asin: 'B0BHXQGM5'},
+            {category: 'Books', brand: 'Penguin', title: 'Self-Help Book', price: 399, originalPrice: 799, rating: 4.6, reviews: 12345, description: 'Bestselling motivational book', image: 'https://m.media-amazon.com/images/I/71g2ednj0JL._AC_UY218_.jpg', asin: 'B0BHXQGM5', badge: 'bestseller'},
+            {category: 'Books', brand: 'Harper Collins', title: 'Fiction Novel', price: 299, originalPrice: 599, rating: 4.5, reviews: 8765, description: 'Award-winning fiction', image: 'https://m.media-amazon.com/images/I/81YkqyaFVEL._AC_UY218_.jpg', asin: 'B0CQXB7KQF', badge: 'bestseller'},
+            {category: 'Books', brand: 'Rupa', title: 'Cookbook', price: 499, originalPrice: 999, rating: 4.4, reviews: 4321, description: 'Indian recipes collection', image: 'https://m.media-amazon.com/images/I/71g2ednj0JL._AC_UY218_.jpg', asin: 'B0CXHXFKL', badge: 'deal'},
+            {category: 'Books', brand: 'McGraw Hill', title: 'Business Strategy Book', price: 599, originalPrice: 1199, rating: 4.5, reviews: 5432, description: 'Learn business fundamentals', image: 'https://m.media-amazon.com/images/I/81YkqyaFVEL._AC_UY218_.jpg', asin: 'B0BHXQGM5', badge: ''},
+            {category: 'Books', brand: 'O\'Reilly', title: 'Programming Guide', price: 799, originalPrice: 1599, rating: 4.6, reviews: 6789, description: 'Complete coding tutorial', image: 'https://m.media-amazon.com/images/I/71g2ednj0JL._AC_UY218_.jpg', asin: 'B0CQXB7KQF', badge: 'bestseller'},
+            {category: 'Books', brand: 'Scholastic', title: 'Children Story Book', price: 249, originalPrice: 499, rating: 4.7, reviews: 9876, description: 'Illustrated kids stories', image: 'https://m.media-amazon.com/images/I/81YkqyaFVEL._AC_UY218_.jpg', asin: 'B0CXHXFKL', badge: 'deal'},
+            {category: 'Books', brand: 'Classmate', title: 'Journal Notebook', price: 349, originalPrice: 699, rating: 4.3, reviews: 3456, description: 'Premium quality diary', image: 'https://m.media-amazon.com/images/I/71g2ednj0JL._AC_UY218_.jpg', asin: 'B0BHXQGM5', badge: ''},
+            {category: 'Books', brand: 'Cello', title: 'Pen Set', price: 299, originalPrice: 599, rating: 4.4, reviews: 4567, description: 'Smooth writing pens pack', image: 'https://m.media-amazon.com/images/I/81YkqyaFVEL._AC_UY218_.jpg', asin: 'B0CQXB7KQF', badge: ''},
+            {category: 'Books', brand: 'Parker', title: 'Fountain Pen', price: 899, originalPrice: 1799, rating: 4.5, reviews: 2345, description: 'Luxury writing instrument', image: 'https://m.media-amazon.com/images/I/71g2ednj0JL._AC_UY218_.jpg', asin: 'B0CXHXFKL', badge: 'deal'},
+            {category: 'Books', brand: 'Post-it', title: 'Sticky Notes Set', price: 199, originalPrice: 399, rating: 4.2, reviews: 1234, description: 'Colorful memo pads', image: 'https://m.media-amazon.com/images/I/81YkqyaFVEL._AC_UY218_.jpg', asin: 'B0BHXQGM5', badge: ''},
 
-            {category: 'Sports', title: 'Football', price: '₹799', description: 'Professional size 5 football', image: 'https://m.media-amazon.com/images/I/71VncILnH9L._AC_UY218_.jpg', asin: 'B0CQXB7KQF'},
-            {category: 'Sports', title: 'Cricket Bat', price: '₹2,499', description: 'Kashmir willow cricket bat', image: 'https://m.media-amazon.com/images/I/61pglWl7oYL._AC_UY218_.jpg', asin: 'B0CXHXFKL'},
-            {category: 'Sports', title: 'Badminton Racket', price: '₹1,299', description: 'Lightweight carbon racket', image: 'https://m.media-amazon.com/images/I/71xWkJIw7LL._AC_UY218_.jpg', asin: 'B0BHXQGM5'},
-            {category: 'Sports', title: 'Tennis Ball Set', price: '₹499', description: 'Pack of 6 tennis balls', image: 'https://m.media-amazon.com/images/I/71VncILnH9L._AC_UY218_.jpg', asin: 'B0CQXB7KQF'},
-            {category: 'Sports', title: 'Dumbbell Set', price: '₹3,999', description: 'Adjustable weight dumbbells', image: 'https://m.media-amazon.com/images/I/61pglWl7oYL._AC_UY218_.jpg', asin: 'B0CXHXFKL'},
-            {category: 'Sports', title: 'Yoga Mat', price: '₹899', description: 'Non-slip exercise mat', image: 'https://m.media-amazon.com/images/I/71xWkJIw7LL._AC_UY218_.jpg', asin: 'B0BHXQGM5'},
-            {category: 'Sports', title: 'Resistance Bands', price: '₹699', description: 'Set of 5 workout bands', image: 'https://m.media-amazon.com/images/I/71VncILnH9L._AC_UY218_.jpg', asin: 'B0CQXB7KQF'},
-            {category: 'Sports', title: 'Cycling Gloves', price: '₹599', description: 'Padded bike gloves', image: 'https://m.media-amazon.com/images/I/61pglWl7oYL._AC_UY218_.jpg', asin: 'B0CXHXFKL'},
-            {category: 'Sports', title: 'Basketball', price: '₹1,299', description: 'Outdoor rubber basketball', image: 'https://m.media-amazon.com/images/I/71xWkJIw7LL._AC_UY218_.jpg', asin: 'B0BHXQGM5'},
-            {category: 'Sports', title: 'Swimming Goggles', price: '₹499', description: 'Anti-fog swim goggles', image: 'https://m.media-amazon.com/images/I/71VncILnH9L._AC_UY218_.jpg', asin: 'B0CQXB7KQF'}
+            {category: 'Sports', brand: 'Nivia', title: 'Football', price: 799, originalPrice: 1599, rating: 4.4, reviews: 3456, description: 'Professional size 5 football', image: 'https://m.media-amazon.com/images/I/71VncILnH9L._AC_UY218_.jpg', asin: 'B0CQXB7KQF', badge: 'deal'},
+            {category: 'Sports', brand: 'SS', title: 'Cricket Bat', price: 2499, originalPrice: 4999, rating: 4.5, reviews: 5678, description: 'Kashmir willow cricket bat', image: 'https://m.media-amazon.com/images/I/61pglWl7oYL._AC_UY218_.jpg', asin: 'B0CXHXFKL', badge: 'bestseller'},
+            {category: 'Sports', brand: 'Yonex', title: 'Badminton Racket', price: 1299, originalPrice: 2599, rating: 4.6, reviews: 6789, description: 'Lightweight carbon racket', image: 'https://m.media-amazon.com/images/I/71xWkJIw7LL._AC_UY218_.jpg', asin: 'B0BHXQGM5', badge: 'bestseller'},
+            {category: 'Sports', brand: 'Wilson', title: 'Tennis Ball Set', price: 499, originalPrice: 999, rating: 4.3, reviews: 2345, description: 'Pack of 6 tennis balls', image: 'https://m.media-amazon.com/images/I/71VncILnH9L._AC_UY218_.jpg', asin: 'B0CQXB7KQF', badge: ''},
+            {category: 'Sports', brand: 'Kore', title: 'Dumbbell Set', price: 3999, originalPrice: 7999, rating: 4.5, reviews: 4321, description: 'Adjustable weight dumbbells', image: 'https://m.media-amazon.com/images/I/61pglWl7oYL._AC_UY218_.jpg', asin: 'B0CXHXFKL', badge: 'deal'},
+            {category: 'Sports', brand: 'Strauss', title: 'Yoga Mat', price: 899, originalPrice: 1799, rating: 4.4, reviews: 7654, description: 'Non-slip exercise mat', image: 'https://m.media-amazon.com/images/I/71xWkJIw7LL._AC_UY218_.jpg', asin: 'B0BHXQGM5', badge: 'bestseller'},
+            {category: 'Sports', brand: 'Boldfit', title: 'Resistance Bands', price: 699, originalPrice: 1399, rating: 4.3, reviews: 3456, description: 'Set of 5 workout bands', image: 'https://m.media-amazon.com/images/I/71VncILnH9L._AC_UY218_.jpg', asin: 'B0CQXB7KQF', badge: ''},
+            {category: 'Sports', brand: 'Nivia', title: 'Cycling Gloves', price: 599, originalPrice: 1199, rating: 4.2, reviews: 1234, description: 'Padded bike gloves', image: 'https://m.media-amazon.com/images/I/61pglWl7oYL._AC_UY218_.jpg', asin: 'B0CXHXFKL', badge: ''},
+            {category: 'Sports', brand: 'Spalding', title: 'Basketball', price: 1299, originalPrice: 2599, rating: 4.5, reviews: 4567, description: 'Outdoor rubber basketball', image: 'https://m.media-amazon.com/images/I/71xWkJIw7LL._AC_UY218_.jpg', asin: 'B0BHXQGM5', badge: 'deal'},
+            {category: 'Sports', brand: 'Speedo', title: 'Swimming Goggles', price: 499, originalPrice: 999, rating: 4.4, reviews: 5678, description: 'Anti-fog swim goggles', image: 'https://m.media-amazon.com/images/I/71VncILnH9L._AC_UY218_.jpg', asin: 'B0CQXB7KQF', badge: 'bestseller'}
         ];
 
         const associateId = 'vashustore0b-21';
-        let allProducts = products;
+        let filteredProducts = [...products];
+        let currentQuickFilter = 'all';
+
+        function getStars(rating) {
+            const fullStars = Math.floor(rating);
+            const halfStar = rating % 1 >= 0.5 ? 1 : 0;
+            const emptyStars = 5 - fullStars - halfStar;
+            return '★'.repeat(fullStars) + (halfStar ? '½' : '') + '☆'.repeat(emptyStars);
+        }
+
+        function getDiscount(price, originalPrice) {
+            return Math.round(((originalPrice - price) / originalPrice) * 100);
+        }
 
         function createProductCard(product) {
             const amazonUrl = `https://www.amazon.in/dp/${product.asin}?tag=${associateId}`;
+            const discount = getDiscount(product.price, product.originalPrice);
+            const badgeHTML = product.badge ? `<span class="badge ${product.badge}">${product.badge === 'bestseller' ? '🔥 Bestseller' : '💰 Deal'}</span>` : '';
+            
             return `
-                <div class="product-card" data-category="${product.category}">
+                <div class="product-card" data-category="${product.category}" data-brand="${product.brand}" data-rating="${product.rating}" data-price="${product.price}" data-discount="${discount}">
+                    ${badgeHTML}
                     <div class="product-image">
                         <img src="${product.image}" alt="${product.title}" loading="lazy" onerror="this.src='https://via.placeholder.com/250x250?text=Product+Image'">
                     </div>
+                    <div class="product-brand">${product.brand}</div>
                     <span class="product-category">${product.category}</span>
                     <h3 class="product-title">${product.title}</h3>
+                    <div class="rating-section">
+                        <span class="stars">${getStars(product.rating)}</span>
+                        <span class="rating-count">(${product.reviews.toLocaleString()})</span>
+                    </div>
+                    <div class="product-price">
+                        ₹${product.price.toLocaleString()}
+                        <span class="original-price">₹${product.originalPrice.toLocaleString()}</span>
+                        <span class="discount">(${discount}% off)</span>
+                    </div>
                     <p class="product-description">${product.description}</p>
-                    <div class="product-price">${product.price}</div>
+                    <div class="delivery-info">✓ FREE Delivery</div>
                     <a href="${amazonUrl}" target="_blank" rel="nofollow noopener" class="buy-button">Buy on Amazon</a>
                 </div>
             `;
         }
 
-        function renderProducts(filter = 'all') {
+        function renderProducts() {
             const grid = document.getElementById('productsGrid');
-            const filteredProducts = filter === 'all' 
-                ? allProducts 
-                : allProducts.filter(p => p.category === filter);
-            
             grid.innerHTML = filteredProducts.map(createProductCard).join('');
+            document.getElementById('resultCount').textContent = filteredProducts.length;
         }
 
-        function filterProducts(category) {
-            document.querySelectorAll('.filter-btn').forEach(btn => {
-                btn.classList.remove('active');
-            });
+        function applyFilters() {
+            let result = [...products];
+
+            // Category filter
+            const selectedCategories = Array.from(document.querySelectorAll('.filter-group input[value="Electronics"], .filter-group input[value="Home"], .filter-group input[value="Fashion"], .filter-group input[value="Books"], .filter-group input[value="Sports"]'))
+                .filter(cb => cb.checked)
+                .map(cb => cb.value);
+            if (selectedCategories.length > 0) {
+                result = result.filter(p => selectedCategories.includes(p.category));
+            }
+
+            // Brand filter
+            const selectedBrands = Array.from(document.querySelectorAll('.filter-group input[value="Sony"], .filter-group input[value="Samsung"], .filter-group input[value="Boat"], .filter-group input[value="Nike"], .filter-group input[value="Adidas"], .filter-group input[value="Prestige"], .filter-group input[value="Philips"]'))
+                .filter(cb => cb.checked)
+                .map(cb => cb.value);
+            if (selectedBrands.length > 0) {
+                result = result.filter(p => selectedBrands.includes(p.brand));
+            }
+
+            // Rating filter
+            const selectedRatings = Array.from(document.querySelectorAll('.rating-filter input'))
+                .filter(cb => cb.checked)
+                .map(cb => parseFloat(cb.value));
+            if (selectedRatings.length > 0) {
+                const minRating = Math.min(...selectedRatings);
+                result = result.filter(p => p.rating >= minRating);
+            }
+
+            // Price filter
+            const minPrice = document.getElementById('minPrice').value;
+            const maxPrice = document.getElementById('maxPrice').value;
+            if (minPrice) result = result.filter(p => p.price >= parseInt(minPrice));
+            if (maxPrice) result = result.filter(p => p.price <= parseInt(maxPrice));
+
+            // Discount filter
+            const selectedDiscounts = Array.from(document.querySelectorAll('.filter-group input[value="50"], .filter-group input[value="40"], .filter-group input[value="30"], .filter-group input[value="20"]'))
+                .filter(cb => cb.checked)
+                .map(cb => parseInt(cb.value));
+            if (selectedDiscounts.length > 0) {
+                const minDiscount = Math.min(...selectedDiscounts);
+                result = result.filter(p => getDiscount(p.price, p.originalPrice) >= minDiscount);
+            }
+
+            // Quick filter
+            if (currentQuickFilter === 'bestseller') {
+                result = result.filter(p => p.badge === 'bestseller');
+            } else if (currentQuickFilter === 'deal') {
+                result = result.filter(p => p.badge === 'deal');
+            }
+
+            filteredProducts = result;
+            sortProducts();
+        }
+
+        function quickFilter(type) {
+            currentQuickFilter = type;
+            document.querySelectorAll('.category-filters .filter-btn').forEach(btn => btn.classList.remove('active'));
             event.target.classList.add('active');
-            allProducts = products;
-            renderProducts(category);
+            applyFilters();
+        }
+
+        function sortProducts() {
+            const sortValue = document.getElementById('sortSelect').value;
+            
+            switch(sortValue) {
+                case 'price-low':
+                    filteredProducts.sort((a, b) => a.price - b.price);
+                    break;
+                case 'price-high':
+                    filteredProducts.sort((a, b) => b.price - a.price);
+                    break;
+                case 'rating':
+                    filteredProducts.sort((a, b) => b.rating - a.rating);
+                    break;
+                case 'discount':
+                    filteredProducts.sort((a, b) => getDiscount(b.price, b.originalPrice) - getDiscount(a.price, a.originalPrice));
+                    break;
+                case 'newest':
+                    filteredProducts.reverse();
+                    break;
+                default:
+                    filteredProducts.sort((a, b) => b.reviews - a.reviews);
+            }
+            
+            renderProducts();
         }
 
         function searchProducts() {
             const searchTerm = document.getElementById('searchInput').value.toLowerCase();
             if (searchTerm === '') {
-                allProducts = products;
+                filteredProducts = [...products];
             } else {
-                allProducts = products.filter(p => 
+                filteredProducts = products.filter(p => 
                     p.title.toLowerCase().includes(searchTerm) || 
                     p.description.toLowerCase().includes(searchTerm) ||
-                    p.category.toLowerCase().includes(searchTerm)
+                    p.category.toLowerCase().includes(searchTerm) ||
+                    p.brand.toLowerCase().includes(searchTerm)
                 );
             }
-            renderProducts('all');
-            document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
-            document.querySelector('.filter-btn').classList.add('active');
+            renderProducts();
+        }
+
+        function clearAllFilters() {
+            document.querySelectorAll('input[type="checkbox"]').forEach(cb => cb.checked = false);
+            document.getElementById('minPrice').value = '';
+            document.getElementById('maxPrice').value = '';
+            document.getElementById('searchInput').value = '';
+            currentQuickFilter = 'all';
+            document.querySelectorAll('.category-filters .filter-btn').forEach(btn => btn.classList.remove('active'));
+            document.querySelector('.category-filters .filter-btn').classList.add('active');
+            filteredProducts = [...products];
+            renderProducts();
         }
 
         renderProducts();
