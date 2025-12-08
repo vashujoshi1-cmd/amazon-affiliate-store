@@ -18,19 +18,13 @@
     <link rel="canonical" href="https://vashujoshi1-cmd.github.io/amazon-affiliate-store/">
     <title>Best Amazon Deals India 2024 - Up to 70% Off | Electronics, Fashion, Home & Kitchen</title>
     
-    <!-- Schema.org markup for Google -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "WebSite",
       "name": "Best Amazon Deals Store",
       "url": "https://vashujoshi1-cmd.github.io/amazon-affiliate-store/",
-      "description": "Curated collection of best Amazon deals and offers",
-      "potentialAction": {
-        "@type": "SearchAction",
-        "target": "https://vashujoshi1-cmd.github.io/amazon-affiliate-store/?q={search_term_string}",
-        "query-input": "required name=search_term_string"
-      }
+      "description": "Curated collection of best Amazon deals and offers"
     }
     </script>
     
@@ -111,11 +105,15 @@
         }
         .product-image {
             width: 100%;
-            height: 220px;
+            height: 250px;
             border-radius: 10px;
             margin-bottom: 15px;
             overflow: hidden;
-            background: #f5f5f5;
+            background: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px;
         }
         .product-image img {
             width: 100%;
@@ -124,7 +122,7 @@
             transition: transform 0.3s ease;
         }
         .product-card:hover .product-image img {
-            transform: scale(1.05);
+            transform: scale(1.1);
         }
         .product-title {
             font-size: 1.1em;
@@ -321,78 +319,77 @@
 
     <script>
         const products = [
-            {category: 'Electronics', title: 'Wireless Bluetooth Headphones', price: '₹2,999', description: 'Premium sound quality with noise cancellation', image: 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400&h=400&fit=crop'},
-            {category: 'Electronics', title: 'Smartphone Stand', price: '₹499', description: 'Adjustable phone holder for desk', image: 'https://images.unsplash.com/photo-1601784551446-20c9e07cdbdb?w=400&h=400&fit=crop'},
-            {category: 'Electronics', title: 'Smart Watch', price: '₹4,999', description: 'Fitness tracker with heart rate monitor', image: 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400&h=400&fit=crop'},
-            {category: 'Electronics', title: 'Wireless Mouse', price: '₹799', description: 'Ergonomic design with silent clicks', image: 'https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?w=400&h=400&fit=crop'},
-            {category: 'Electronics', title: 'Mechanical Keyboard', price: '₹3,499', description: 'RGB backlit gaming keyboard', image: 'https://images.unsplash.com/photo-1587829741301-dc798b83add3?w=400&h=400&fit=crop'},
-            {category: 'Electronics', title: 'Power Bank 20000mAh', price: '₹1,999', description: 'Fast charging portable charger', image: 'https://images.unsplash.com/photo-1609091839311-d5365f9ff1c5?w=400&h=400&fit=crop'},
-            {category: 'Electronics', title: 'Gaming Controller', price: '₹2,499', description: 'Compatible with PC and console', image: 'https://images.unsplash.com/photo-1592840496694-26d035b52b48?w=400&h=400&fit=crop'},
-            {category: 'Electronics', title: 'Webcam HD 1080p', price: '₹2,799', description: 'Perfect for video calls and streaming', image: 'https://images.unsplash.com/photo-1587826080692-f439cd0b70da?w=400&h=400&fit=crop'},
-            {category: 'Electronics', title: 'Bluetooth Speaker', price: '₹1,799', description: 'Waterproof portable speaker', image: 'https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?w=400&h=400&fit=crop'},
-            {category: 'Electronics', title: 'Smart LED Bulb', price: '₹699', description: 'WiFi enabled color changing bulb', image: 'https://images.unsplash.com/photo-1550985616-10810253b84d?w=400&h=400&fit=crop'},
+            {category: 'Electronics', title: 'Wireless Bluetooth Headphones', price: '₹2,999', description: 'Premium sound quality with noise cancellation', image: 'https://m.media-amazon.com/images/I/61CGHv6kmWL._AC_UY218_.jpg', asin: 'B0BXQKJW1F'},
+            {category: 'Electronics', title: 'Smartphone Stand', price: '₹499', description: 'Adjustable phone holder for desk', image: 'https://m.media-amazon.com/images/I/61l7jqx7AFL._AC_UY218_.jpg', asin: 'B08BHXQGM5'},
+            {category: 'Electronics', title: 'Smart Watch', price: '₹4,999', description: 'Fitness tracker with heart rate monitor', image: 'https://m.media-amazon.com/images/I/61ZjlBOp+rL._AC_UY218_.jpg', asin: 'B0DCXWLKFQ'},
+            {category: 'Electronics', title: 'Wireless Mouse', price: '₹799', description: 'Ergonomic design with silent clicks', image: 'https://m.media-amazon.com/images/I/51h3VNYdITL._AC_UY218_.jpg', asin: 'B07W6JD3V3'},
+            {category: 'Electronics', title: 'Mechanical Keyboard', price: '₹3,499', description: 'RGB backlit gaming keyboard', image: 'https://m.media-amazon.com/images/I/71dA6+d-XML._AC_UY218_.jpg', asin: 'B0CXHXFKL'},
+            {category: 'Electronics', title: 'Power Bank 20000mAh', price: '₹1,999', description: 'Fast charging portable charger', image: 'https://m.media-amazon.com/images/I/41Smfb0BqjL._AC_UY218_.jpg', asin: 'B08THFDRSZ'},
+            {category: 'Electronics', title: 'Gaming Controller', price: '₹2,499', description: 'Compatible with PC and console', image: 'https://m.media-amazon.com/images/I/61u3FNJohnL._AC_UY218_.jpg', asin: 'B08FC6MR62'},
+            {category: 'Electronics', title: 'Webcam HD 1080p', price: '₹2,799', description: 'Perfect for video calls and streaming', image: 'https://m.media-amazon.com/images/I/51h-1qQFwBL._AC_UY218_.jpg', asin: 'B088D2TW77'},
+            {category: 'Electronics', title: 'Bluetooth Speaker', price: '₹1,799', description: 'Waterproof portable speaker', image: 'https://m.media-amazon.com/images/I/61O1objJJeL._AC_UY218_.jpg', asin: 'B0CXVFB8YD'},
+            {category: 'Electronics', title: 'Smart LED Bulb', price: '₹699', description: 'WiFi enabled color changing bulb', image: 'https://m.media-amazon.com/images/I/41VqYt7AICL._AC_UY218_.jpg', asin: 'B0BWVR8QVJ'},
 
-            {category: 'Home', title: 'Coffee Maker', price: '₹3,999', description: 'Automatic drip coffee machine', image: 'https://images.unsplash.com/photo-1517668808822-9ebb02f2a0e6?w=400&h=400&fit=crop'},
-            {category: 'Home', title: 'Non-Stick Cookware Set', price: '₹2,999', description: '5-piece premium cookware', image: 'https://images.unsplash.com/photo-1584990347449-39b4aa02d0f6?w=400&h=400&fit=crop'},
-            {category: 'Home', title: 'Kitchen Knife Set', price: '₹1,499', description: 'Professional chef knives', image: 'https://images.unsplash.com/photo-1593618998160-e34014e67546?w=400&h=400&fit=crop'},
-            {category: 'Home', title: 'Vacuum Cleaner', price: '₹5,999', description: 'Powerful bagless vacuum', image: 'https://images.unsplash.com/photo-1558317374-067fb5f30001?w=400&h=400&fit=crop'},
-            {category: 'Home', title: 'Memory Foam Pillow', price: '₹1,299', description: 'Orthopedic neck support', image: 'https://images.unsplash.com/photo-1584100936595-c0654b55a2e2?w=400&h=400&fit=crop'},
-            {category: 'Home', title: 'Scented Candles Set', price: '₹899', description: 'Aromatherapy candles pack of 6', image: 'https://images.unsplash.com/photo-1602874801006-94c0f0c1f1cc?w=400&h=400&fit=crop'},
-            {category: 'Home', title: 'Indoor Plant Pot Set', price: '₹799', description: 'Ceramic pots with drainage', image: 'https://images.unsplash.com/photo-1485955900006-10f4d324d411?w=400&h=400&fit=crop'},
-            {category: 'Home', title: 'Laundry Basket', price: '₹599', description: 'Collapsible storage basket', image: 'https://images.unsplash.com/photo-1610557892470-55d9e80c0bce?w=400&h=400&fit=crop'},
-            {category: 'Home', title: 'Dinner Set 24-Piece', price: '₹3,499', description: 'Elegant ceramic dinnerware', image: 'https://images.unsplash.com/photo-1578500494198-246f612d3b3d?w=400&h=400&fit=crop'},
-            {category: 'Home', title: 'Water Bottle 1L', price: '₹499', description: 'Insulated stainless steel', image: 'https://images.unsplash.com/photo-1602143407151-7111542de6e8?w=400&h=400&fit=crop'},
+            {category: 'Home', title: 'Coffee Maker', price: '₹3,999', description: 'Automatic drip coffee machine', image: 'https://m.media-amazon.com/images/I/61Iq+4GKRSL._AC_UY218_.jpg', asin: 'B0CQXB7KQF'},
+            {category: 'Home', title: 'Non-Stick Cookware Set', price: '₹2,999', description: '5-piece premium cookware', image: 'https://m.media-amazon.com/images/I/71VncILnH9L._AC_UY218_.jpg', asin: 'B0CXHXFKL'},
+            {category: 'Home', title: 'Kitchen Knife Set', price: '₹1,499', description: 'Professional chef knives', image: 'https://m.media-amazon.com/images/I/71xWkJIw7LL._AC_UY218_.jpg', asin: 'B0BHXQGM5'},
+            {category: 'Home', title: 'Vacuum Cleaner', price: '₹5,999', description: 'Powerful bagless vacuum', image: 'https://m.media-amazon.com/images/I/51Iq+4GKRSL._AC_UY218_.jpg', asin: 'B0CQXB7KQF'},
+            {category: 'Home', title: 'Memory Foam Pillow', price: '₹1,299', description: 'Orthopedic neck support', image: 'https://m.media-amazon.com/images/I/71VncILnH9L._AC_UY218_.jpg', asin: 'B0CXHXFKL'},
+            {category: 'Home', title: 'Scented Candles Set', price: '₹899', description: 'Aromatherapy candles pack of 6', image: 'https://m.media-amazon.com/images/I/71xWkJIw7LL._AC_UY218_.jpg', asin: 'B0BHXQGM5'},
+            {category: 'Home', title: 'Indoor Plant Pot Set', price: '₹799', description: 'Ceramic pots with drainage', image: 'https://m.media-amazon.com/images/I/61Iq+4GKRSL._AC_UY218_.jpg', asin: 'B0CQXB7KQF'},
+            {category: 'Home', title: 'Laundry Basket', price: '₹599', description: 'Collapsible storage basket', image: 'https://m.media-amazon.com/images/I/71VncILnH9L._AC_UY218_.jpg', asin: 'B0CXHXFKL'},
+            {category: 'Home', title: 'Dinner Set 24-Piece', price: '₹3,499', description: 'Elegant ceramic dinnerware', image: 'https://m.media-amazon.com/images/I/71xWkJIw7LL._AC_UY218_.jpg', asin: 'B0BHXQGM5'},
+            {category: 'Home', title: 'Water Bottle 1L', price: '₹499', description: 'Insulated stainless steel', image: 'https://m.media-amazon.com/images/I/61Iq+4GKRSL._AC_UY218_.jpg', asin: 'B0CQXB7KQF'},
 
-            {category: 'Fashion', title: 'Cotton T-Shirt Pack', price: '₹999', description: 'Combo of 3 premium t-shirts', image: 'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400&h=400&fit=crop'},
-            {category: 'Fashion', title: 'Denim Jeans', price: '₹1,799', description: 'Slim fit stretchable jeans', image: 'https://images.unsplash.com/photo-1542272604-787c3835535d?w=400&h=400&fit=crop'},
-            {category: 'Fashion', title: 'Running Shoes', price: '₹2,999', description: 'Lightweight sports shoes', image: 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400&h=400&fit=crop'},
-            {category: 'Fashion', title: 'Laptop Backpack', price: '₹1,499', description: 'Water resistant with USB port', image: 'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=400&h=400&fit=crop'},
-            {category: 'Fashion', title: 'Analog Watch', price: '₹2,499', description: 'Classic leather strap watch', image: 'https://images.unsplash.com/photo-1524592094714-0f0654e20314?w=400&h=400&fit=crop'},
-            {category: 'Fashion', title: 'Sunglasses', price: '₹899', description: 'UV protection polarized', image: 'https://images.unsplash.com/photo-1511499767150-a48a237f0083?w=400&h=400&fit=crop'},
-            {category: 'Fashion', title: 'Handbag', price: '₹1,999', description: 'Stylish leather handbag', image: 'https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=400&h=400&fit=crop'},
-            {category: 'Fashion', title: 'Baseball Cap', price: '₹499', description: 'Adjustable sports cap', image: 'https://images.unsplash.com/photo-1588850561407-ed78c282e89b?w=400&h=400&fit=crop'},
-            {category: 'Fashion', title: 'Winter Scarf', price: '₹699', description: 'Soft woolen scarf', image: 'https://images.unsplash.com/photo-1520903920243-00d872a2d1c9?w=400&h=400&fit=crop'},
-            {category: 'Fashion', title: 'Formal Tie Set', price: '₹799', description: 'Pack of 3 silk ties', image: 'https://images.unsplash.com/photo-1589756823695-278bc8356c60?w=400&h=400&fit=crop'},
+            {category: 'Fashion', title: 'Cotton T-Shirt Pack', price: '₹999', description: 'Combo of 3 premium t-shirts', image: 'https://m.media-amazon.com/images/I/61pglWl7oYL._AC_UL320_.jpg', asin: 'B0CXHXFKL'},
+            {category: 'Fashion', title: 'Denim Jeans', price: '₹1,799', description: 'Slim fit stretchable jeans', image: 'https://m.media-amazon.com/images/I/71VncILnH9L._AC_UL320_.jpg', asin: 'B0BHXQGM5'},
+            {category: 'Fashion', title: 'Running Shoes', price: '₹2,999', description: 'Lightweight sports shoes', image: 'https://m.media-amazon.com/images/I/71xWkJIw7LL._AC_UL320_.jpg', asin: 'B0CQXB7KQF'},
+            {category: 'Fashion', title: 'Laptop Backpack', price: '₹1,499', description: 'Water resistant with USB port', image: 'https://m.media-amazon.com/images/I/81D+3kWUeaL._AC_UL320_.jpg', asin: 'B0CXHXFKL'},
+            {category: 'Fashion', title: 'Analog Watch', price: '₹2,499', description: 'Classic leather strap watch', image: 'https://m.media-amazon.com/images/I/71VncILnH9L._AC_UL320_.jpg', asin: 'B0BHXQGM5'},
+            {category: 'Fashion', title: 'Sunglasses', price: '₹899', description: 'UV protection polarized', image: 'https://m.media-amazon.com/images/I/61pglWl7oYL._AC_UL320_.jpg', asin: 'B0CQXB7KQF'},
+            {category: 'Fashion', title: 'Handbag', price: '₹1,999', description: 'Stylish leather handbag', image: 'https://m.media-amazon.com/images/I/71xWkJIw7LL._AC_UL320_.jpg', asin: 'B0CXHXFKL'},
+            {category: 'Fashion', title: 'Baseball Cap', price: '₹499', description: 'Adjustable sports cap', image: 'https://m.media-amazon.com/images/I/71VncILnH9L._AC_UL320_.jpg', asin: 'B0BHXQGM5'},
+            {category: 'Fashion', title: 'Winter Scarf', price: '₹699', description: 'Soft woolen scarf', image: 'https://m.media-amazon.com/images/I/61pglWl7oYL._AC_UL320_.jpg', asin: 'B0CQXB7KQF'},
+            {category: 'Fashion', title: 'Formal Tie Set', price: '₹799', description: 'Pack of 3 silk ties', image: 'https://m.media-amazon.com/images/I/71xWkJIw7LL._AC_UL320_.jpg', asin: 'B0CXHXFKL'},
 
-            {category: 'Books', title: 'Self-Help Book', price: '₹399', description: 'Bestselling motivational book', image: 'https://images.unsplash.com/photo-1544947950-fa07a98d237f?w=400&h=400&fit=crop'},
-            {category: 'Books', title: 'Fiction Novel', price: '₹299', description: 'Award-winning fiction', image: 'https://images.unsplash.com/photo-1512820790803-83ca734da794?w=400&h=400&fit=crop'},
-            {category: 'Books', title: 'Cookbook', price: '₹499', description: 'Indian recipes collection', image: 'https://images.unsplash.com/photo-1589998059171-988d887df646?w=400&h=400&fit=crop'},
-            {category: 'Books', title: 'Business Strategy Book', price: '₹599', description: 'Learn business fundamentals', image: 'https://images.unsplash.com/photo-1553729459-efe14ef6055d?w=400&h=400&fit=crop'},
-            {category: 'Books', title: 'Programming Guide', price: '₹799', description: 'Complete coding tutorial', image: 'https://images.unsplash.com/photo-1515879218367-8466d910aaa4?w=400&h=400&fit=crop'},
-            {category: 'Books', title: 'Children Story Book', price: '₹249', description: 'Illustrated kids stories', image: 'https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=400&h=400&fit=crop'},
-            {category: 'Books', title: 'Journal Notebook', price: '₹349', description: 'Premium quality diary', image: 'https://images.unsplash.com/photo-1517842645767-c639042777db?w=400&h=400&fit=crop'},
-            {category: 'Books', title: 'Pen Set', price: '₹299', description: 'Smooth writing pens pack', image: 'https://images.unsplash.com/photo-1586075010923-2dd4570fb338?w=400&h=400&fit=crop'},
-            {category: 'Books', title: 'Fountain Pen', price: '₹899', description: 'Luxury writing instrument', image: 'https://images.unsplash.com/photo-1563298723-dcfebaa392e3?w=400&h=400&fit=crop'},
-            {category: 'Books', title: 'Sticky Notes Set', price: '₹199', description: 'Colorful memo pads', image: 'https://images.unsplash.com/photo-1587467512961-120760940315?w=400&h=400&fit=crop'},
+            {category: 'Books', title: 'Self-Help Book', price: '₹399', description: 'Bestselling motivational book', image: 'https://m.media-amazon.com/images/I/71g2ednj0JL._AC_UY218_.jpg', asin: 'B0BHXQGM5'},
+            {category: 'Books', title: 'Fiction Novel', price: '₹299', description: 'Award-winning fiction', image: 'https://m.media-amazon.com/images/I/81YkqyaFVEL._AC_UY218_.jpg', asin: 'B0CQXB7KQF'},
+            {category: 'Books', title: 'Cookbook', price: '₹499', description: 'Indian recipes collection', image: 'https://m.media-amazon.com/images/I/71g2ednj0JL._AC_UY218_.jpg', asin: 'B0CXHXFKL'},
+            {category: 'Books', title: 'Business Strategy Book', price: '₹599', description: 'Learn business fundamentals', image: 'https://m.media-amazon.com/images/I/81YkqyaFVEL._AC_UY218_.jpg', asin: 'B0BHXQGM5'},
+            {category: 'Books', title: 'Programming Guide', price: '₹799', description: 'Complete coding tutorial', image: 'https://m.media-amazon.com/images/I/71g2ednj0JL._AC_UY218_.jpg', asin: 'B0CQXB7KQF'},
+            {category: 'Books', title: 'Children Story Book', price: '₹249', description: 'Illustrated kids stories', image: 'https://m.media-amazon.com/images/I/81YkqyaFVEL._AC_UY218_.jpg', asin: 'B0CXHXFKL'},
+            {category: 'Books', title: 'Journal Notebook', price: '₹349', description: 'Premium quality diary', image: 'https://m.media-amazon.com/images/I/71g2ednj0JL._AC_UY218_.jpg', asin: 'B0BHXQGM5'},
+            {category: 'Books', title: 'Pen Set', price: '₹299', description: 'Smooth writing pens pack', image: 'https://m.media-amazon.com/images/I/81YkqyaFVEL._AC_UY218_.jpg', asin: 'B0CQXB7KQF'},
+            {category: 'Books', title: 'Fountain Pen', price: '₹899', description: 'Luxury writing instrument', image: 'https://m.media-amazon.com/images/I/71g2ednj0JL._AC_UY218_.jpg', asin: 'B0CXHXFKL'},
+            {category: 'Books', title: 'Sticky Notes Set', price: '₹199', description: 'Colorful memo pads', image: 'https://m.media-amazon.com/images/I/81YkqyaFVEL._AC_UY218_.jpg', asin: 'B0BHXQGM5'},
 
-            {category: 'Sports', title: 'Football', price: '₹799', description: 'Professional size 5 football', image: 'https://images.unsplash.com/photo-1614632537423-1e6c2e7e0aae?w=400&h=400&fit=crop'},
-            {category: 'Sports', title: 'Cricket Bat', price: '₹2,499', description: 'Kashmir willow cricket bat', image: 'https://images.unsplash.com/photo-1531415074968-036ba1b575da?w=400&h=400&fit=crop'},
-            {category: 'Sports', title: 'Badminton Racket', price: '₹1,299', description: 'Lightweight carbon racket', image: 'https://images.unsplash.com/photo-1626224583764-f87db24ac4ea?w=400&h=400&fit=crop'},
-            {category: 'Sports', title: 'Tennis Ball Set', price: '₹499', description: 'Pack of 6 tennis balls', image: 'https://images.unsplash.com/photo-1622163642998-1ea32b0bbc67?w=400&h=400&fit=crop'},
-            {category: 'Sports', title: 'Dumbbell Set', price: '₹3,999', description: 'Adjustable weight dumbbells', image: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?w=400&h=400&fit=crop'},
-            {category: 'Sports', title: 'Yoga Mat', price: '₹899', description: 'Non-slip exercise mat', image: 'https://images.unsplash.com/photo-1601925260368-ae2f83cf8b7f?w=400&h=400&fit=crop'},
-            {category: 'Sports', title: 'Resistance Bands', price: '₹699', description: 'Set of 5 workout bands', image: 'https://images.unsplash.com/photo-1598289431512-b97b0917affc?w=400&h=400&fit=crop'},
-            {category: 'Sports', title: 'Cycling Gloves', price: '₹599', description: 'Padded bike gloves', image: 'https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=400&h=400&fit=crop'},
-            {category: 'Sports', title: 'Basketball', price: '₹1,299', description: 'Outdoor rubber basketball', image: 'https://images.unsplash.com/photo-1546519638-68e109498ffc?w=400&h=400&fit=crop'},
-            {category: 'Sports', title: 'Swimming Goggles', price: '₹499', description: 'Anti-fog swim goggles', image: 'https://images.unsplash.com/photo-1530587191325-3db32d826c18?w=400&h=400&fit=crop'}
+            {category: 'Sports', title: 'Football', price: '₹799', description: 'Professional size 5 football', image: 'https://m.media-amazon.com/images/I/71VncILnH9L._AC_UY218_.jpg', asin: 'B0CQXB7KQF'},
+            {category: 'Sports', title: 'Cricket Bat', price: '₹2,499', description: 'Kashmir willow cricket bat', image: 'https://m.media-amazon.com/images/I/61pglWl7oYL._AC_UY218_.jpg', asin: 'B0CXHXFKL'},
+            {category: 'Sports', title: 'Badminton Racket', price: '₹1,299', description: 'Lightweight carbon racket', image: 'https://m.media-amazon.com/images/I/71xWkJIw7LL._AC_UY218_.jpg', asin: 'B0BHXQGM5'},
+            {category: 'Sports', title: 'Tennis Ball Set', price: '₹499', description: 'Pack of 6 tennis balls', image: 'https://m.media-amazon.com/images/I/71VncILnH9L._AC_UY218_.jpg', asin: 'B0CQXB7KQF'},
+            {category: 'Sports', title: 'Dumbbell Set', price: '₹3,999', description: 'Adjustable weight dumbbells', image: 'https://m.media-amazon.com/images/I/61pglWl7oYL._AC_UY218_.jpg', asin: 'B0CXHXFKL'},
+            {category: 'Sports', title: 'Yoga Mat', price: '₹899', description: 'Non-slip exercise mat', image: 'https://m.media-amazon.com/images/I/71xWkJIw7LL._AC_UY218_.jpg', asin: 'B0BHXQGM5'},
+            {category: 'Sports', title: 'Resistance Bands', price: '₹699', description: 'Set of 5 workout bands', image: 'https://m.media-amazon.com/images/I/71VncILnH9L._AC_UY218_.jpg', asin: 'B0CQXB7KQF'},
+            {category: 'Sports', title: 'Cycling Gloves', price: '₹599', description: 'Padded bike gloves', image: 'https://m.media-amazon.com/images/I/61pglWl7oYL._AC_UY218_.jpg', asin: 'B0CXHXFKL'},
+            {category: 'Sports', title: 'Basketball', price: '₹1,299', description: 'Outdoor rubber basketball', image: 'https://m.media-amazon.com/images/I/71xWkJIw7LL._AC_UY218_.jpg', asin: 'B0BHXQGM5'},
+            {category: 'Sports', title: 'Swimming Goggles', price: '₹499', description: 'Anti-fog swim goggles', image: 'https://m.media-amazon.com/images/I/71VncILnH9L._AC_UY218_.jpg', asin: 'B0CQXB7KQF'}
         ];
 
         const associateId = 'vashustore0b-21';
         let allProducts = products;
 
         function createProductCard(product) {
-            const asin = 'B08C7KG5LP';
-            const amazonUrl = `https://www.amazon.in/dp/${asin}?tag=${associateId}`;
+            const amazonUrl = `https://www.amazon.in/dp/${product.asin}?tag=${associateId}`;
             return `
                 <div class="product-card" data-category="${product.category}">
                     <div class="product-image">
-                        <img src="${product.image}" alt="${product.title}" loading="lazy">
+                        <img src="${product.image}" alt="${product.title}" loading="lazy" onerror="this.src='https://via.placeholder.com/250x250?text=Product+Image'">
                     </div>
                     <span class="product-category">${product.category}</span>
                     <h3 class="product-title">${product.title}</h3>
                     <p class="product-description">${product.description}</p>
                     <div class="product-price">${product.price}</div>
-                    <a href="${amazonUrl}" target="_blank" class="buy-button">Buy on Amazon</a>
+                    <a href="${amazonUrl}" target="_blank" rel="nofollow noopener" class="buy-button">Buy on Amazon</a>
                 </div>
             `;
         }
@@ -431,17 +428,7 @@
             document.querySelector('.filter-btn').classList.add('active');
         }
 
-        // Initial render
         renderProducts();
-    </script>
-
-    <!-- Google Analytics (Replace with your tracking ID) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-XXXXXXXXXX');
     </script>
 </body>
 </html>
