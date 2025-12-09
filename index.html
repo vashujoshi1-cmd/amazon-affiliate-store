@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Shop online for electronics, fashion, home & kitchen, books, sports and more. Get best deals with up to 70% off. Free delivery on eligible orders.">
-    <meta name="keywords" content="online shopping, amazon deals, electronics, fashion, home kitchen, books, sports, best offers, discount">
     <title>Amazon.in: Online Shopping India - Buy Electronics, Fashion, Home & Kitchen</title>
     <link rel="canonical" href="https://vashujoshi1-cmd.github.io/amazon-affiliate-store/">
     
@@ -20,7 +19,6 @@
             background: #EAEDED;
         }
         
-        /* Header */
         .header {
             background: #131921;
             color: white;
@@ -117,7 +115,6 @@
             text-decoration: underline;
         }
         
-        /* Main Content */
         .container {
             max-width: 1500px;
             margin: 0 auto;
@@ -129,7 +126,6 @@
             gap: 20px;
         }
         
-        /* Sidebar */
         .sidebar {
             width: 260px;
             background: white;
@@ -215,7 +211,6 @@
             color: white;
         }
         
-        /* Content Area */
         .content-area {
             flex: 1;
         }
@@ -242,7 +237,6 @@
             cursor: pointer;
         }
         
-        /* Products Grid */
         .products-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
@@ -288,12 +282,13 @@
         
         .product-image {
             width: 100%;
-            height: 220px;
+            height: 250px;
             display: flex;
             align-items: center;
             justify-content: center;
             margin-bottom: 10px;
             position: relative;
+            background: white;
         }
         
         .product-image img {
@@ -317,6 +312,7 @@
             -webkit-line-clamp: 2;
             -webkit-box-orient: vertical;
             overflow: hidden;
+            min-height: 40px;
         }
         
         .product-title:hover {
@@ -355,11 +351,6 @@
         }
         
         .price-symbol {
-            font-size: 14px;
-            vertical-align: super;
-        }
-        
-        .price-decimal {
             font-size: 14px;
             vertical-align: super;
         }
@@ -408,7 +399,6 @@
             background: #F7CA00;
         }
         
-        /* Footer */
         .footer {
             background: #232F3E;
             color: white;
@@ -456,7 +446,6 @@
     </style>
 </head>
 <body>
-    <!-- Header -->
     <header class="header">
         <div class="header-top">
             <a href="#" class="logo">amazon.in</a>
@@ -490,19 +479,14 @@
             <a href="#" class="category-link" onclick="filterByCategory('Sports')">Sports & Fitness</a>
             <a href="#" class="category-link">Today's Deals</a>
             <a href="#" class="category-link">Customer Service</a>
-            <a href="#" class="category-link">Gift Ideas</a>
-            <a href="#" class="category-link">Sell</a>
         </div>
     </header>
 
-    <!-- Main Content -->
     <div class="container">
         <div class="main-layout">
-            <!-- Sidebar Filters -->
             <aside class="sidebar">
                 <h3>Filters</h3>
                 
-                <!-- Category -->
                 <div class="filter-section">
                     <h4>Department</h4>
                     <div class="filter-option">
@@ -527,7 +511,6 @@
                     </div>
                 </div>
                 
-                <!-- Customer Review -->
                 <div class="filter-section">
                     <h4>Customer Review</h4>
                     <div class="filter-option">
@@ -540,32 +523,6 @@
                     </div>
                 </div>
                 
-                <!-- Brand -->
-                <div class="filter-section">
-                    <h4>Brand</h4>
-                    <div class="filter-option">
-                        <input type="checkbox" value="Samsung" onchange="applyFilters()">
-                        <label>Samsung</label>
-                    </div>
-                    <div class="filter-option">
-                        <input type="checkbox" value="Boat" onchange="applyFilters()">
-                        <label>Boat</label>
-                    </div>
-                    <div class="filter-option">
-                        <input type="checkbox" value="Nike" onchange="applyFilters()">
-                        <label>Nike</label>
-                    </div>
-                    <div class="filter-option">
-                        <input type="checkbox" value="Sony" onchange="applyFilters()">
-                        <label>Sony</label>
-                    </div>
-                    <div class="filter-option">
-                        <input type="checkbox" value="Prestige" onchange="applyFilters()">
-                        <label>Prestige</label>
-                    </div>
-                </div>
-                
-                <!-- Price -->
                 <div class="filter-section">
                     <h4>Price</h4>
                     <div class="filter-option">
@@ -584,10 +541,6 @@
                         <input type="checkbox" value="2000-5000" onchange="applyFilters()">
                         <label>₹2,000 - ₹5,000</label>
                     </div>
-                    <div class="filter-option">
-                        <input type="checkbox" value="5000-10000" onchange="applyFilters()">
-                        <label>₹5,000 - ₹10,000</label>
-                    </div>
                     <div class="price-inputs">
                         <input type="number" id="minPrice" placeholder="Min">
                         <input type="number" id="maxPrice" placeholder="Max">
@@ -595,31 +548,9 @@
                     </div>
                 </div>
                 
-                <!-- Discount -->
-                <div class="filter-section">
-                    <h4>Discount</h4>
-                    <div class="filter-option">
-                        <input type="checkbox" value="50" onchange="applyFilters()">
-                        <label>50% Off or more</label>
-                    </div>
-                    <div class="filter-option">
-                        <input type="checkbox" value="40" onchange="applyFilters()">
-                        <label>40% Off or more</label>
-                    </div>
-                    <div class="filter-option">
-                        <input type="checkbox" value="30" onchange="applyFilters()">
-                        <label>30% Off or more</label>
-                    </div>
-                    <div class="filter-option">
-                        <input type="checkbox" value="20" onchange="applyFilters()">
-                        <label>20% Off or more</label>
-                    </div>
-                </div>
-                
                 <button class="clear-filters" onclick="clearFilters()">Clear All Filters</button>
             </aside>
             
-            <!-- Products Area -->
             <div class="content-area">
                 <div class="results-bar">
                     <div class="results-count">
@@ -631,7 +562,6 @@
                             <option value="price-low">Price: Low to High</option>
                             <option value="price-high">Price: High to Low</option>
                             <option value="rating">Avg. Customer Review</option>
-                            <option value="newest">Newest Arrivals</option>
                         </select>
                     </div>
                 </div>
@@ -641,13 +571,10 @@
         </div>
     </div>
 
-    <!-- Footer -->
     <footer class="footer">
         <div class="footer-links">
             <a href="#">About Us</a>
             <a href="#">Careers</a>
-            <a href="#">Press Releases</a>
-            <a href="#">Amazon Science</a>
             <a href="#">Sell on Amazon</a>
             <a href="#">Help</a>
         </div>
@@ -660,119 +587,98 @@
         const associateId = 'vashustore0b-21';
         
         const products = [
-            // Electronics - 30 products
-            {category: 'Electronics', brand: 'Boat', title: 'boAt Rockerz 450 Bluetooth On Ear Headphones with Mic, Upto 15 Hours Playback', price: 1299, originalPrice: 2990, rating: 4.1, reviews: 234567, image: 'https://m.media-amazon.com/images/I/61CGHv6kmWL._AC_UY218_.jpg', asin: 'B0756Z9B9P', badge: 'bestseller'},
-            {category: 'Electronics', brand: 'Samsung', title: 'Samsung Galaxy M14 5G (Smoky Silver,6GB,128GB)|50MP Triple Cam|6000 mAh Battery', price: 12990, originalPrice: 18490, rating: 4.2, reviews: 45678, image: 'https://m.media-amazon.com/images/I/81f55uHDfPL._AC_UY218_.jpg', asin: 'B0BX7GLLS1', badge: 'deal'},
-            {category: 'Electronics', brand: 'Boat', title: 'boAt Airdopes 141 Bluetooth Truly Wireless in Ear Earbuds with mic', price: 1299, originalPrice: 4990, rating: 4.0, reviews: 156789, image: 'https://m.media-amazon.com/images/I/51HBom7tW-L._AC_UY218_.jpg', asin: 'B08R6VVZZ3', badge: 'bestseller'},
-            {category: 'Electronics', brand: 'OnePlus', title: 'OnePlus Nord CE 3 Lite 5G (Pastel Lime, 8GB RAM, 128GB Storage)', price: 17999, originalPrice: 21999, rating: 4.3, reviews: 23456, image: 'https://m.media-amazon.com/images/I/61QRgOgBx0L._AC_UY218_.jpg', asin: 'B0BZ8B4QKL', badge: ''},
-            {category: 'Electronics', brand: 'Mi', title: 'Mi Power Bank 3i 20000mAh Lithium Polymer 18W Fast Power Delivery Charging', price: 1799, originalPrice: 2499, rating: 4.4, reviews: 89012, image: 'https://m.media-amazon.com/images/I/41Smfb0BqjL._AC_UY218_.jpg', asin: 'B08THFDRSZ', badge: 'deal'},
-            {category: 'Electronics', brand: 'Logitech', title: 'Logitech M331 Silent Plus Wireless Mouse, 2.4GHz with USB Nano Receiver', price: 795, originalPrice: 1495, rating: 4.3, reviews: 67890, image: 'https://m.media-amazon.com/images/I/51h3VNYdITL._AC_UY218_.jpg', asin: 'B01JPOLLTK', badge: ''},
-            {category: 'Electronics', brand: 'HP', title: 'HP v236w 32GB USB 2.0 Pen Drive (Silver)', price: 349, originalPrice: 650, rating: 4.2, reviews: 123456, image: 'https://m.media-amazon.com/images/I/31VcPFLLiuL._AC_UY218_.jpg', asin: 'B00VBEJ8KO', badge: 'limited'},
-            {category: 'Electronics', brand: 'Sony', title: 'Sony WH-CH520 Wireless On-Ear Bluetooth Headphones with Mic', price: 2990, originalPrice: 4990, rating: 4.3, reviews: 34567, image: 'https://m.media-amazon.com/images/I/41fV7FkdqeL._AC_UY218_.jpg', asin: 'B0BW6F7JTD', badge: 'bestseller'},
-            {category: 'Electronics', brand: 'Redgear', title: 'Redgear Pro Wireless Gamepad with 2.4GHz Wireless Connectivity for PC', price: 1399, originalPrice: 2499, rating: 4.1, reviews: 45678, image: 'https://m.media-amazon.com/images/I/61u3FNJohnL._AC_UY218_.jpg', asin: 'B07WFKQJDX', badge: ''},
-            {category: 'Electronics', brand: 'JBL', title: 'JBL Go 3 Portable Bluetooth Speaker with Pro Sound, Vibrant Colors', price: 2799, originalPrice: 3999, rating: 4.4, reviews: 56789, image: 'https://m.media-amazon.com/images/I/61O1objJJeL._AC_UY218_.jpg', asin: 'B08XXDWQ8Q', badge: 'deal'},
-            {category: 'Electronics', brand: 'Portronics', title: 'Portronics Konnect L 1.2M Fast Charging 3A 8 Pin USB Cable', price: 199, originalPrice: 399, rating: 4.2, reviews: 78901, image: 'https://m.media-amazon.com/images/I/51VqYt7AICL._AC_UY218_.jpg', asin: 'B08BHXQGM5', badge: ''},
-            {category: 'Electronics', brand: 'Zebronics', title: 'Zebronics Zeb-Transformer-K USB Gaming Keyboard with RGB LED Effect', price: 599, originalPrice: 999, rating: 4.0, reviews: 23456, image: 'https://m.media-amazon.com/images/I/71dA6+d-XML._AC_UY218_.jpg', asin: 'B07WKXLB7D', badge: ''},
-            {category: 'Electronics', brand: 'Logitech', title: 'Logitech C270 HD Webcam, HD 720p/30fps, Widescreen HD Video Calling', price: 1795, originalPrice: 2495, rating: 4.3, reviews: 34567, image: 'https://m.media-amazon.com/images/I/51h-1qQFwBL._AC_UY218_.jpg', asin: 'B003PAOAWG', badge: 'bestseller'},
-            {category: 'Electronics', brand: 'SanDisk', title: 'SanDisk Ultra 128GB microSDXC UHS-I, 120MB/s R, Full HD & 4K UHD', price: 899, originalPrice: 1600, rating: 4.4, reviews: 234567, image: 'https://m.media-amazon.com/images/I/61YGxGKUZlL._AC_UY218_.jpg', asin: 'B08GY9NYRM', badge: 'deal'},
-            {category: 'Electronics', brand: 'Philips', title: 'Philips Audio in-Ear Headphone with Mic TAE1105BK/00 (Black)', price: 399, originalPrice: 699, rating: 4.1, reviews: 12345, image: 'https://m.media-amazon.com/images/I/41VqYt7AICL._AC_UY218_.jpg', asin: 'B08BWVR8QV', badge: ''},
-            {category: 'Electronics', brand: 'Realme', title: 'realme Buds 2 Wired in Ear Earphones with Mic (Black)', price: 399, originalPrice: 599, rating: 4.2, reviews: 89012, image: 'https://m.media-amazon.com/images/I/51HBom7tW-L._AC_UY218_.jpg', asin: 'B07WVGQ8Y5', badge: ''},
-            {category: 'Electronics', brand: 'TP-Link', title: 'TP-Link Archer C6 Gigabit MU-MIMO Wireless Router, Dual Band', price: 1799, originalPrice: 2999, rating: 4.3, reviews: 45678, image: 'https://m.media-amazon.com/images/I/41Smfb0BqjL._AC_UY218_.jpg', asin: 'B07GVR9TG7', badge: 'bestseller'},
-            {category: 'Electronics', brand: 'Ambrane', title: 'Ambrane 10000mAh Li-Polymer Powerbank with 12W Fast Charging', price: 699, originalPrice: 1499, rating: 4.0, reviews: 23456, image: 'https://m.media-amazon.com/images/I/41Smfb0BqjL._AC_UY218_.jpg', asin: 'B08THFDRSZ', badge: 'deal'},
-            {category: 'Electronics', brand: 'Cosmic Byte', title: 'Cosmic Byte CB-GK-16 Firefly RGB Mechanical Keyboard', price: 2199, originalPrice: 4999, rating: 4.2, reviews: 34567, image: 'https://m.media-amazon.com/images/I/71dA6+d-XML._AC_UY218_.jpg', asin: 'B07KCRTN9Q', badge: ''},
-            {category: 'Electronics', brand: 'Portronics', title: 'Portronics Toad 23 One Plus Type C 20W PD 3.0 Fast Charger', price: 399, originalPrice: 999, rating: 4.1, reviews: 12345, image: 'https://m.media-amazon.com/images/I/41VqYt7AICL._AC_UY218_.jpg', asin: 'B09JQKRQHB', badge: ''},
-            {category: 'Electronics', brand: 'Amazon Basics', title: 'Amazon Basics HDMI Cable (6 Feet/1.8 Meters) - Supports 4K@60Hz', price: 299, originalPrice: 599, rating: 4.3, reviews: 56789, image: 'https://m.media-amazon.com/images/I/41VqYt7AICL._AC_UY218_.jpg', asin: 'B014I8SSD0', badge: 'bestseller'},
-            {category: 'Electronics', brand: 'Lapster', title: 'Lapster Laptop Cooling Pad Gaming Laptop Cooler', price: 799, originalPrice: 1999, rating: 4.0, reviews: 23456, image: 'https://m.media-amazon.com/images/I/61l7jqx7AFL._AC_UY218_.jpg', asin: 'B08BHXQGM5', badge: ''},
-            {category: 'Electronics', brand: 'Ant Esports', title: 'Ant Esports H500 RGB LED Gaming Headset for PC', price: 999, originalPrice: 2499, rating: 4.1, reviews: 34567, image: 'https://m.media-amazon.com/images/I/61CGHv6kmWL._AC_UY218_.jpg', asin: 'B07WKXLB7D', badge: 'deal'},
-            {category: 'Electronics', brand: 'Portronics', title: 'Portronics Muffs G20 Wireless Bluetooth Headphones', price: 1299, originalPrice: 2999, rating: 4.2, reviews: 12345, image: 'https://m.media-amazon.com/images/I/61CGHv6kmWL._AC_UY218_.jpg', asin: 'B08C7KG5LP', badge: ''},
-            {category: 'Electronics', brand: 'Zebronics', title: 'Zebronics Zeb-Companion 107 Wireless Bluetooth Portable Speaker', price: 899, originalPrice: 1999, rating: 4.0, reviews: 23456, image: 'https://m.media-amazon.com/images/I/61O1objJJeL._AC_UY218_.jpg', asin: 'B08CXVFB8Y', badge: ''},
-            {category: 'Electronics', brand: 'Lapster', title: 'Lapster Laptop Stand Adjustable Aluminum Laptop Riser', price: 699, originalPrice: 1499, rating: 4.3, reviews: 12345, image: 'https://m.media-amazon.com/images/I/61l7jqx7AFL._AC_UY218_.jpg', asin: 'B08BHXQGM5', badge: 'bestseller'},
-            {category: 'Electronics', brand: 'Portronics', title: 'Portronics Harmonics Twins S3 TWS Earbuds with Bluetooth 5.0', price: 999, originalPrice: 2499, rating: 4.1, reviews: 34567, image: 'https://m.media-amazon.com/images/I/51HBom7tW-L._AC_UY218_.jpg', asin: 'B08R6VVZZ3', badge: ''},
-            {category: 'Electronics', brand: 'Zebronics', title: 'Zebronics Zeb-Transformer Wired USB Gaming Mouse', price: 399, originalPrice: 799, rating: 4.0, reviews: 23456, image: 'https://m.media-amazon.com/images/I/51h3VNYdITL._AC_UY218_.jpg', asin: 'B07W6JD3V3', badge: ''},
-            {category: 'Electronics', brand: 'Portronics', title: 'Portronics Beem 500 Wireless Presenter with Red Laser Pointer', price: 799, originalPrice: 1999, rating: 4.2, reviews: 12345, image: 'https://m.media-amazon.com/images/I/41VqYt7AICL._AC_UY218_.jpg', asin: 'B08BHXQGM5', badge: ''},
-            {category: 'Electronics', brand: 'Ant Esports', title: 'Ant Esports MP200 Extended Gaming Mouse Pad', price: 399, originalPrice: 999, rating: 4.1, reviews: 23456, image: 'https://m.media-amazon.com/images/I/71dA6+d-XML._AC_UY218_.jpg', asin: 'B07WKXLB7D', badge: ''},
+            // Electronics
+            {category: 'Electronics', brand: 'Boat', title: 'boAt Rockerz 450 Bluetooth Headphones with Mic, 15 Hours Playback', price: 1299, originalPrice: 2990, rating: 4.1, reviews: 234567, image: 'https://m.media-amazon.com/images/I/61CGHv6kmWL._AC_SY200_.jpg', asin: 'B0756Z9B9P', badge: 'bestseller'},
+            {category: 'Electronics', brand: 'Samsung', title: 'Samsung Galaxy M14 5G (Smoky Silver, 6GB, 128GB) 50MP Camera', price: 12990, originalPrice: 18490, rating: 4.2, reviews: 45678, image: 'https://m.media-amazon.com/images/I/81f55uHDfPL._AC_SY200_.jpg', asin: 'B0BX7GLLS1', badge: 'deal'},
+            {category: 'Electronics', brand: 'Boat', title: 'boAt Airdopes 141 Bluetooth Truly Wireless Earbuds with Mic', price: 1299, originalPrice: 4990, rating: 4.0, reviews: 156789, image: 'https://m.media-amazon.com/images/I/51HBom7tW-L._AC_SY200_.jpg', asin: 'B08R6VVZZ3', badge: 'bestseller'},
+            {category: 'Electronics', brand: 'OnePlus', title: 'OnePlus Nord CE 3 Lite 5G (Pastel Lime, 8GB RAM, 128GB)', price: 17999, originalPrice: 21999, rating: 4.3, reviews: 23456, image: 'https://m.media-amazon.com/images/I/61QRgOgBx0L._AC_SY200_.jpg', asin: 'B0BZ8B4QKL', badge: ''},
+            {category: 'Electronics', brand: 'Mi', title: 'Mi Power Bank 3i 20000mAh 18W Fast Charging', price: 1799, originalPrice: 2499, rating: 4.4, reviews: 89012, image: 'https://m.media-amazon.com/images/I/41Smfb0BqjL._AC_SY200_.jpg', asin: 'B08THFDRSZ', badge: 'deal'},
+            {category: 'Electronics', brand: 'Logitech', title: 'Logitech M331 Silent Plus Wireless Mouse', price: 795, originalPrice: 1495, rating: 4.3, reviews: 67890, image: 'https://m.media-amazon.com/images/I/51h3VNYdITL._AC_SY200_.jpg', asin: 'B01JPOLLTK', badge: ''},
+            {category: 'Electronics', brand: 'HP', title: 'HP v236w 32GB USB 2.0 Pen Drive (Silver)', price: 349, originalPrice: 650, rating: 4.2, reviews: 123456, image: 'https://m.media-amazon.com/images/I/31VcPFLLiuL._AC_SY200_.jpg', asin: 'B00VBEJ8KO', badge: 'limited'},
+            {category: 'Electronics', brand: 'Sony', title: 'Sony WH-CH520 Wireless Bluetooth Headphones', price: 2990, originalPrice: 4990, rating: 4.3, reviews: 34567, image: 'https://m.media-amazon.com/images/I/41fV7FkdqeL._AC_SY200_.jpg', asin: 'B0BW6F7JTD', badge: 'bestseller'},
+            {category: 'Electronics', brand: 'JBL', title: 'JBL Go 3 Portable Bluetooth Speaker', price: 2799, originalPrice: 3999, rating: 4.4, reviews: 56789, image: 'https://m.media-amazon.com/images/I/61O1objJJeL._AC_SY200_.jpg', asin: 'B08XXDWQ8Q', badge: 'deal'},
+            {category: 'Electronics', brand: 'Zebronics', title: 'Zebronics Zeb-Transformer Gaming Keyboard RGB', price: 599, originalPrice: 999, rating: 4.0, reviews: 23456, image: 'https://m.media-amazon.com/images/I/71dA6+d-XML._AC_SY200_.jpg', asin: 'B07WKXLB7D', badge: ''},
+            {category: 'Electronics', brand: 'Logitech', title: 'Logitech C270 HD Webcam 720p Video Calling', price: 1795, originalPrice: 2495, rating: 4.3, reviews: 34567, image: 'https://m.media-amazon.com/images/I/51h-1qQFwBL._AC_SY200_.jpg', asin: 'B003PAOAWG', badge: 'bestseller'},
+            {category: 'Electronics', brand: 'SanDisk', title: 'SanDisk Ultra 128GB microSDXC Card', price: 899, originalPrice: 1600, rating: 4.4, reviews: 234567, image: 'https://m.media-amazon.com/images/I/61YGxGKUZlL._AC_SY200_.jpg', asin: 'B08GY9NYRM', badge: 'deal'},
+            {category: 'Electronics', brand: 'Realme', title: 'realme Buds 2 Wired Earphones with Mic', price: 399, originalPrice: 599, rating: 4.2, reviews: 89012, image: 'https://m.media-amazon.com/images/I/51HBom7tW-L._AC_SY200_.jpg', asin: 'B07WVGQ8Y5', badge: ''},
+            {category: 'Electronics', brand: 'TP-Link', title: 'TP-Link Archer C6 Gigabit Wireless Router', price: 1799, originalPrice: 2999, rating: 4.3, reviews: 45678, image: 'https://m.media-amazon.com/images/I/41Smfb0BqjL._AC_SY200_.jpg', asin: 'B07GVR9TG7', badge: 'bestseller'},
+            {category: 'Electronics', brand: 'Ambrane', title: 'Ambrane 10000mAh Fast Charging Power Bank', price: 699, originalPrice: 1499, rating: 4.0, reviews: 23456, image: 'https://m.media-amazon.com/images/I/41Smfb0BqjL._AC_SY200_.jpg', asin: 'B08THFDRSZ', badge: 'deal'},
+            {category: 'Electronics', brand: 'Portronics', title: 'Portronics Konnect L Fast Charging Cable', price: 199, originalPrice: 399, rating: 4.2, reviews: 78901, image: 'https://m.media-amazon.com/images/I/51VqYt7AICL._AC_SY200_.jpg', asin: 'B08BHXQGM5', badge: ''},
+            {category: 'Electronics', brand: 'Amazon Basics', title: 'Amazon Basics HDMI Cable 6 Feet - 4K Support', price: 299, originalPrice: 599, rating: 4.3, reviews: 56789, image: 'https://m.media-amazon.com/images/I/41VqYt7AICL._AC_SY200_.jpg', asin: 'B014I8SSD0', badge: 'bestseller'},
+            {category: 'Electronics', brand: 'Zebronics', title: 'Zebronics Bluetooth Portable Speaker', price: 899, originalPrice: 1999, rating: 4.0, reviews: 23456, image: 'https://m.media-amazon.com/images/I/61O1objJJeL._AC_SY200_.jpg', asin: 'B08CXVFB8Y', badge: ''},
+            {category: 'Electronics', brand: 'Portronics', title: 'Portronics TWS Earbuds Bluetooth 5.0', price: 999, originalPrice: 2499, rating: 4.1, reviews: 34567, image: 'https://m.media-amazon.com/images/I/51HBom7tW-L._AC_SY200_.jpg', asin: 'B08R6VVZZ3', badge: ''},
+            {category: 'Electronics', brand: 'Zebronics', title: 'Zebronics Wireless Gaming Mouse', price: 399, originalPrice: 799, rating: 4.0, reviews: 23456, image: 'https://m.media-amazon.com/images/I/51h3VNYdITL._AC_SY200_.jpg', asin: 'B07W6JD3V3', badge: ''},
 
-            // Fashion - 25 products
+            // Fashion
             {category: 'Fashion', brand: 'Levi\'s', title: 'Levi\'s Men\'s Regular Fit Jeans', price: 1799, originalPrice: 3199, rating: 4.2, reviews: 45678, image: 'https://m.media-amazon.com/images/I/71VncILnH9L._AC_UL320_.jpg', asin: 'B078HXQY8V', badge: 'bestseller'},
             {category: 'Fashion', brand: 'Nike', title: 'Nike Men\'s Revolution 6 Running Shoes', price: 3495, originalPrice: 5995, rating: 4.3, reviews: 23456, image: 'https://m.media-amazon.com/images/I/71xWkJIw7LL._AC_UL320_.jpg', asin: 'B09JQKRQHB', badge: 'deal'},
-            {category: 'Fashion', brand: 'Adidas', title: 'Adidas Men\'s Plain Regular Fit T-Shirt', price: 699, originalPrice: 1299, rating: 4.1, reviews: 34567, image: 'https://m.media-amazon.com/images/I/61pglWl7oYL._AC_UL320_.jpg', asin: 'B07WKXLB7D', badge: ''},
-            {category: 'Fashion', brand: 'Puma', title: 'Puma Unisex-Adult Backpack', price: 1199, originalPrice: 2499, rating: 4.2, reviews: 12345, image: 'https://m.media-amazon.com/images/I/81D+3kWUeaL._AC_UL320_.jpg', asin: 'B08BHXQGM5', badge: 'bestseller'},
+            {category: 'Fashion', brand: 'Adidas', title: 'Adidas Men\'s Plain T-Shirt', price: 699, originalPrice: 1299, rating: 4.1, reviews: 34567, image: 'https://m.media-amazon.com/images/I/61pglWl7oYL._AC_UL320_.jpg', asin: 'B07WKXLB7D', badge: ''},
+            {category: 'Fashion', brand: 'Puma', title: 'Puma Unisex Backpack', price: 1199, originalPrice: 2499, rating: 4.2, reviews: 12345, image: 'https://m.media-amazon.com/images/I/81D+3kWUeaL._AC_UL320_.jpg', asin: 'B08BHXQGM5', badge: 'bestseller'},
             {category: 'Fashion', brand: 'Titan', title: 'Titan Men\'s Analog Watch', price: 2495, originalPrice: 4995, rating: 4.4, reviews: 23456, image: 'https://m.media-amazon.com/images/I/71VncILnH9L._AC_UL320_.jpg', asin: 'B07WKXLB7D', badge: 'deal'},
-            {category: 'Fashion', brand: 'Fastrack', title: 'Fastrack UV Protected Wayfarer Unisex Sunglasses', price: 799, originalPrice: 1495, rating: 4.0, reviews: 34567, image: 'https://m.media-amazon.com/images/I/61pglWl7oYL._AC_UL320_.jpg', asin: 'B08BHXQGM5', badge: ''},
+            {category: 'Fashion', brand: 'Fastrack', title: 'Fastrack UV Protected Sunglasses', price: 799, originalPrice: 1495, rating: 4.0, reviews: 34567, image: 'https://m.media-amazon.com/images/I/61pglWl7oYL._AC_UL320_.jpg', asin: 'B08BHXQGM5', badge: ''},
             {category: 'Fashion', brand: 'Lavie', title: 'Lavie Women Handbag', price: 1599, originalPrice: 3199, rating: 4.2, reviews: 12345, image: 'https://m.media-amazon.com/images/I/71xWkJIw7LL._AC_UL320_.jpg', asin: 'B07WKXLB7D', badge: 'bestseller'},
-            {category: 'Fashion', brand: 'Wildcraft', title: 'Wildcraft Unisex Polyester Backpack', price: 1399, originalPrice: 2799, rating: 4.3, reviews: 23456, image: 'https://m.media-amazon.com/images/I/81D+3kWUeaL._AC_UL320_.jpg', asin: 'B08BHXQGM5', badge: ''},
-            {category: 'Fashion', brand: 'Allen Solly', title: 'Allen Solly Men\'s Slim Fit Casual Shirt', price: 999, originalPrice: 1999, rating: 4.1, reviews: 12345, image: 'https://m.media-amazon.com/images/I/61pglWl7oYL._AC_UL320_.jpg', asin: 'B07WKXLB7D', badge: ''},
-            {category: 'Fashion', brand: 'Peter England', title: 'Peter England Men\'s Regular Fit Formal Trousers', price: 899, originalPrice: 1799, rating: 4.2, reviews: 23456, image: 'https://m.media-amazon.com/images/I/71VncILnH9L._AC_UL320_.jpg', asin: 'B08BHXQGM5', badge: 'deal'},
+            {category: 'Fashion', brand: 'Wildcraft', title: 'Wildcraft Polyester Backpack', price: 1399, originalPrice: 2799, rating: 4.3, reviews: 23456, image: 'https://m.media-amazon.com/images/I/81D+3kWUeaL._AC_UL320_.jpg', asin: 'B08BHXQGM5', badge: ''},
             {category: 'Fashion', brand: 'Bata', title: 'Bata Men\'s Formal Shoes', price: 1299, originalPrice: 2499, rating: 4.0, reviews: 12345, image: 'https://m.media-amazon.com/images/I/71xWkJIw7LL._AC_UL320_.jpg', asin: 'B07WKXLB7D', badge: ''},
             {category: 'Fashion', brand: 'Sparx', title: 'Sparx Men\'s Running Shoes', price: 899, originalPrice: 1799, rating: 4.1, reviews: 23456, image: 'https://m.media-amazon.com/images/I/71xWkJIw7LL._AC_UL320_.jpg', asin: 'B08BHXQGM5', badge: 'bestseller'},
             {category: 'Fashion', brand: 'Campus', title: 'Campus Men\'s Sports Shoes', price: 799, originalPrice: 1599, rating: 4.2, reviews: 34567, image: 'https://m.media-amazon.com/images/I/71xWkJIw7LL._AC_UL320_.jpg', asin: 'B07WKXLB7D', badge: ''},
-            {category: 'Fashion', brand: 'Jockey', title: 'Jockey Men\'s Cotton T-Shirt (Pack of 2)', price: 699, originalPrice: 1398, rating: 4.3, reviews: 45678, image: 'https://m.media-amazon.com/images/I/61pglWl7oYL._AC_UL320_.jpg', asin: 'B08BHXQGM5', badge: 'deal'},
-            {category: 'Fashion', brand: 'Van Heusen', title: 'Van Heusen Men\'s Formal Shirt', price: 1199, originalPrice: 2399, rating: 4.2, reviews: 12345, image: 'https://m.media-amazon.com/images/I/61pglWl7oYL._AC_UL320_.jpg', asin: 'B07WKXLB7D', badge: ''},
-            {category: 'Fashion', brand: 'Arrow', title: 'Arrow Men\'s Regular Fit Formal Shirt', price: 1099, originalPrice: 2199, rating: 4.1, reviews: 23456, image: 'https://m.media-amazon.com/images/I/61pglWl7oYL._AC_UL320_.jpg', asin: 'B08BHXQGM5', badge: 'bestseller'},
-            {category: 'Fashion', brand: 'Roadster', title: 'Roadster Men Casual Shoes', price: 999, originalPrice: 1999, rating: 4.0, reviews: 12345, image: 'https://m.media-amazon.com/images/I/71xWkJIw7LL._AC_UL320_.jpg', asin: 'B07WKXLB7D', badge: ''},
+            {category: 'Fashion', brand: 'Jockey', title: 'Jockey Men\'s T-Shirt Pack of 2', price: 699, originalPrice: 1398, rating: 4.3, reviews: 45678, image: 'https://m.media-amazon.com/images/I/61pglWl7oYL._AC_UL320_.jpg', asin: 'B08BHXQGM5', badge: 'deal'},
             {category: 'Fashion', brand: 'Wrangler', title: 'Wrangler Men\'s Relaxed Fit Jeans', price: 1599, originalPrice: 2999, rating: 4.2, reviews: 23456, image: 'https://m.media-amazon.com/images/I/71VncILnH9L._AC_UL320_.jpg', asin: 'B08BHXQGM5', badge: ''},
             {category: 'Fashion', brand: 'Lee', title: 'Lee Men\'s Slim Fit Jeans', price: 1699, originalPrice: 3199, rating: 4.3, reviews: 12345, image: 'https://m.media-amazon.com/images/I/71VncILnH9L._AC_UL320_.jpg', asin: 'B07WKXLB7D', badge: 'deal'},
             {category: 'Fashion', brand: 'Puma', title: 'Puma Unisex Cap', price: 499, originalPrice: 999, rating: 4.1, reviews: 23456, image: 'https://m.media-amazon.com/images/I/71VncILnH9L._AC_UL320_.jpg', asin: 'B08BHXQGM5', badge: ''},
-            {category: 'Fashion', brand: 'Adidas', title: 'Adidas Unisex Socks (Pack of 3)', price: 399, originalPrice: 799, rating: 4.0, reviews: 12345, image: 'https://m.media-amazon.com/images/I/61pglWl7oYL._AC_UL320_.jpg', asin: 'B07WKXLB7D', badge: 'bestseller'},
-            {category: 'Fashion', brand: 'Skybags', title: 'Skybags Brat Black 46 Cms Casual Backpack', price: 899, originalPrice: 1799, rating: 4.2, reviews: 23456, image: 'https://m.media-amazon.com/images/I/81D+3kWUeaL._AC_UL320_.jpg', asin: 'B08BHXQGM5', badge: ''},
-            {category: 'Fashion', brand: 'American Tourister', title: 'American Tourister Valex Laptop Backpack', price: 1299, originalPrice: 2599, rating: 4.3, reviews: 12345, image: 'https://m.media-amazon.com/images/I/81D+3kWUeaL._AC_UL320_.jpg', asin: 'B07WKXLB7D', badge: 'deal'},
+            {category: 'Fashion', brand: 'Skybags', title: 'Skybags Casual Backpack', price: 899, originalPrice: 1799, rating: 4.2, reviews: 23456, image: 'https://m.media-amazon.com/images/I/81D+3kWUeaL._AC_UL320_.jpg', asin: 'B08BHXQGM5', badge: ''},
+            {category: 'Fashion', brand: 'American Tourister', title: 'American Tourister Laptop Backpack', price: 1299, originalPrice: 2599, rating: 4.3, reviews: 12345, image: 'https://m.media-amazon.com/images/I/81D+3kWUeaL._AC_UL320_.jpg', asin: 'B07WKXLB7D', badge: 'deal'},
             {category: 'Fashion', brand: 'Woodland', title: 'Woodland Men\'s Leather Wallet', price: 599, originalPrice: 1199, rating: 4.1, reviews: 23456, image: 'https://m.media-amazon.com/images/I/71VncILnH9L._AC_UL320_.jpg', asin: 'B08BHXQGM5', badge: ''},
             {category: 'Fashion', brand: 'Tommy Hilfiger', title: 'Tommy Hilfiger Men\'s Leather Belt', price: 899, originalPrice: 1799, rating: 4.2, reviews: 12345, image: 'https://m.media-amazon.com/images/I/71xWkJIw7LL._AC_UL320_.jpg', asin: 'B07WKXLB7D', badge: 'bestseller'},
+            {category: 'Fashion', brand: 'Allen Solly', title: 'Allen Solly Men\'s Casual Shirt', price: 999, originalPrice: 1999, rating: 4.1, reviews: 12345, image: 'https://m.media-amazon.com/images/I/61pglWl7oYL._AC_UL320_.jpg', asin: 'B07WKXLB7D', badge: ''},
 
-            // Home & Kitchen - 25 products
-            {category: 'Home', brand: 'Prestige', title: 'Prestige Popular Plus Aluminium Pressure Cooker, 3 Litres', price: 1299, originalPrice: 2295, rating: 4.4, reviews: 67890, image: 'https://m.media-amazon.com/images/I/71VncILnH9L._AC_UY218_.jpg', asin: 'B00JXPQ6QW', badge: 'bestseller'},
-            {category: 'Home', brand: 'Pigeon', title: 'Pigeon by Stovekraft Favourite Induction Base Aluminium Cookware Set', price: 1999, originalPrice: 3999, rating: 4.2, reviews: 34567, image: 'https://m.media-amazon.com/images/I/71VncILnH9L._AC_UY218_.jpg', asin: 'B07WKXLB7D', badge: 'deal'},
-            {category: 'Home', brand: 'Milton', title: 'Milton Thermosteel Flip Lid Flask, 1000 ml, Silver', price: 699, originalPrice: 1350, rating: 4.3, reviews: 89012, image: 'https://m.media-amazon.com/images/I/61Iq+4GKRSL._AC_UY218_.jpg', asin: 'B00JXPQ6QW', badge: 'bestseller'},
-            {category: 'Home', brand: 'Cello', title: 'Cello Checkers Plastic Lunch Box Set, 4-Pieces', price: 299, originalPrice: 599, rating: 4.1, reviews: 23456, image: 'https://m.media-amazon.com/images/I/71xWkJIw7LL._AC_UY218_.jpg', asin: 'B07WKXLB7D', badge: ''},
-            {category: 'Home', brand: 'Philips', title: 'Philips HL7756/00 Mixer Grinder, 750W, 3 Jars', price: 3999, originalPrice: 7995, rating: 4.4, reviews: 45678, image: 'https://m.media-amazon.com/images/I/61Iq+4GKRSL._AC_UY218_.jpg', asin: 'B07WKXLB7D', badge: 'deal'},
-            {category: 'Home', brand: 'Bajaj', title: 'Bajaj Rex 500-Watt Mixer Grinder with 3 Jars', price: 1999, originalPrice: 3995, rating: 4.2, reviews: 23456, image: 'https://m.media-amazon.com/images/I/61Iq+4GKRSL._AC_UY218_.jpg', asin: 'B08BHXQGM5', badge: 'bestseller'},
-            {category: 'Home', brand: 'Prestige', title: 'Prestige IRIS 750 Watt Mixer Grinder with 3 Stainless Steel Jar', price: 2499, originalPrice: 4995, rating: 4.3, reviews: 34567, image: 'https://m.media-amazon.com/images/I/61Iq+4GKRSL._AC_UY218_.jpg', asin: 'B07WKXLB7D', badge: ''},
-            {category: 'Home', brand: 'Butterfly', title: 'Butterfly Premium Vegetable Chopper 900 ml', price: 399, originalPrice: 799, rating: 4.1, reviews: 12345, image: 'https://m.media-amazon.com/images/I/71xWkJIw7LL._AC_UY218_.jpg', asin: 'B08BHXQGM5', badge: 'deal'},
-            {category: 'Home', brand: 'Pigeon', title: 'Pigeon by Stovekraft Amaze Plus Electric Kettle', price: 699, originalPrice: 1395, rating: 4.2, reviews: 23456, image: 'https://m.media-amazon.com/images/I/61Iq+4GKRSL._AC_UY218_.jpg', asin: 'B07WKXLB7D', badge: 'bestseller'},
-            {category: 'Home', brand: 'Prestige', title: 'Prestige PIC 20 1600-Watt Induction Cooktop', price: 2199, originalPrice: 4395, rating: 4.3, reviews: 34567, image: 'https://m.media-amazon.com/images/I/51Iq+4GKRSL._AC_UY218_.jpg', asin: 'B08BHXQGM5', badge: ''},
-            {category: 'Home', brand: 'Havells', title: 'Havells Instanio 3-Litre Instant Water Heater', price: 4999, originalPrice: 7990, rating: 4.4, reviews: 12345, image: 'https://m.media-amazon.com/images/I/51Iq+4GKRSL._AC_UY218_.jpg', asin: 'B07WKXLB7D', badge: 'deal'},
-            {category: 'Home', brand: 'Eureka Forbes', title: 'Eureka Forbes Quick Clean DX 1200-Watt Vacuum Cleaner', price: 4999, originalPrice: 9990, rating: 4.2, reviews: 23456, image: 'https://m.media-amazon.com/images/I/51Iq+4GKRSL._AC_UY218_.jpg', asin: 'B08BHXQGM5', badge: 'bestseller'},
-            {category: 'Home', brand: 'Inalsa', title: 'Inalsa Air Fryer Fry-Light-1400W with 4.2L Cooking Pan Capacity', price: 3999, originalPrice: 7995, rating: 4.3, reviews: 12345, image: 'https://m.media-amazon.com/images/I/61Iq+4GKRSL._AC_UY218_.jpg', asin: 'B07WKXLB7D', badge: ''},
-            {category: 'Home', brand: 'Wonderchef', title: 'Wonderchef Granite Non-Stick Cookware Set, 4-Pieces', price: 2499, originalPrice: 4999, rating: 4.2, reviews: 23456, image: 'https://m.media-amazon.com/images/I/71VncILnH9L._AC_UY218_.jpg', asin: 'B08BHXQGM5', badge: 'deal'},
-            {category: 'Home', brand: 'Solimo', title: 'Solimo Stainless Steel Dinner Set - 24 pieces', price: 1999, originalPrice: 3999, rating: 4.1, reviews: 12345, image: 'https://m.media-amazon.com/images/I/71xWkJIw7LL._AC_UY218_.jpg', asin: 'B07WKXLB7D', badge: 'bestseller'},
-            {category: 'Home', brand: 'Borosil', title: 'Borosil Larah Opalware Dinner Set, 27 Pieces, White', price: 2999, originalPrice: 5999, rating: 4.4, reviews: 23456, image: 'https://m.media-amazon.com/images/I/71xWkJIw7LL._AC_UY218_.jpg', asin: 'B08BHXQGM5', badge: ''},
-            {category: 'Home', brand: 'Cello', title: 'Cello Opalware Dinner Set, White, 18 Pieces', price: 1499, originalPrice: 2999, rating: 4.2, reviews: 12345, image: 'https://m.media-amazon.com/images/I/71xWkJIw7LL._AC_UY218_.jpg', asin: 'B07WKXLB7D', badge: 'deal'},
-            {category: 'Home', brand: 'Amazon Brand', title: 'Solimo 100% Cotton 4 Piece Bath Towel Set', price: 999, originalPrice: 1999, rating: 4.3, reviews: 23456, image: 'https://m.media-amazon.com/images/I/71VncILnH9L._AC_UY218_.jpg', asin: 'B08BHXQGM5', badge: 'bestseller'},
-            {category: 'Home', brand: 'Story@Home', title: 'Story@Home 100% Cotton Soft Towel Set of 10', price: 1299, originalPrice: 2599, rating: 4.1, reviews: 12345, image: 'https://m.media-amazon.com/images/I/71VncILnH9L._AC_UY218_.jpg', asin: 'B07WKXLB7D', badge: ''},
-            {category: 'Home', brand: 'AmazonBasics', title: 'AmazonBasics Microfiber Bedding Comforter Set - King', price: 1999, originalPrice: 3999, rating: 4.2, reviews: 23456, image: 'https://m.media-amazon.com/images/I/71VncILnH9L._AC_UY218_.jpg', asin: 'B08BHXQGM5', badge: 'deal'},
-            {category: 'Home', brand: 'Kuber Industries', title: 'Kuber Industries Non Woven Underbed Storage Bag, Set of 2', price: 399, originalPrice: 799, rating: 4.0, reviews: 12345, image: 'https://m.media-amazon.com/images/I/71VncILnH9L._AC_UY218_.jpg', asin: 'B07WKXLB7D', badge: 'bestseller'},
-            {category: 'Home', brand: 'Kuber Industries', title: 'Kuber Industries Plastic Multipurpose Storage Basket', price: 299, originalPrice: 599, rating: 4.1, reviews: 23456, image: 'https://m.media-amazon.com/images/I/71VncILnH9L._AC_UY218_.jpg', asin: 'B08BHXQGM5', badge: ''},
-            {category: 'Home', brand: 'Kuber Industries', title: 'Kuber Industries Plastic Fridge Storage Organizer Basket', price: 249, originalPrice: 499, rating: 4.2, reviews: 12345, image: 'https://m.media-amazon.com/images/I/71xWkJIw7LL._AC_UY218_.jpg', asin: 'B07WKXLB7D', badge: ''},
-            {category: 'Home', brand: 'Kuber Industries', title: 'Kuber Industries Plastic Dustbin/Garbage Bin', price: 399, originalPrice: 799, rating: 4.0, reviews: 23456, image: 'https://m.media-amazon.com/images/I/71VncILnH9L._AC_UY218_.jpg', asin: 'B08BHXQGM5', badge: 'deal'},
-            {category: 'Home', brand: 'Kuber Industries', title: 'Kuber Industries Plastic Bathroom Mug Set of 6', price: 299, originalPrice: 599, rating: 4.1, reviews: 12345, image: 'https://m.media-amazon.com/images/I/71xWkJIw7LL._AC_UY218_.jpg', asin: 'B07WKXLB7D', badge: 'bestseller'},
+            // Home & Kitchen
+            {category: 'Home', brand: 'Prestige', title: 'Prestige Aluminium Pressure Cooker 3 Litres', price: 1299, originalPrice: 2295, rating: 4.4, reviews: 67890, image: 'https://m.media-amazon.com/images/I/71VncILnH9L._AC_SY200_.jpg', asin: 'B00JXPQ6QW', badge: 'bestseller'},
+            {category: 'Home', brand: 'Pigeon', title: 'Pigeon Induction Base Cookware Set', price: 1999, originalPrice: 3999, rating: 4.2, reviews: 34567, image: 'https://m.media-amazon.com/images/I/71VncILnH9L._AC_SY200_.jpg', asin: 'B07WKXLB7D', badge: 'deal'},
+            {category: 'Home', brand: 'Milton', title: 'Milton Thermosteel Flask 1000ml Silver', price: 699, originalPrice: 1350, rating: 4.3, reviews: 89012, image: 'https://m.media-amazon.com/images/I/61Iq+4GKRSL._AC_SY200_.jpg', asin: 'B00JXPQ6QW', badge: 'bestseller'},
+            {category: 'Home', brand: 'Cello', title: 'Cello Plastic Lunch Box Set 4 Pieces', price: 299, originalPrice: 599, rating: 4.1, reviews: 23456, image: 'https://m.media-amazon.com/images/I/71xWkJIw7LL._AC_SY200_.jpg', asin: 'B07WKXLB7D', badge: ''},
+            {category: 'Home', brand: 'Philips', title: 'Philips Mixer Grinder 750W 3 Jars', price: 3999, originalPrice: 7995, rating: 4.4, reviews: 45678, image: 'https://m.media-amazon.com/images/I/61Iq+4GKRSL._AC_SY200_.jpg', asin: 'B07WKXLB7D', badge: 'deal'},
+            {category: 'Home', brand: 'Bajaj', title: 'Bajaj Rex 500W Mixer Grinder 3 Jars', price: 1999, originalPrice: 3995, rating: 4.2, reviews: 23456, image: 'https://m.media-amazon.com/images/I/61Iq+4GKRSL._AC_SY200_.jpg', asin: 'B08BHXQGM5', badge: 'bestseller'},
+            {category: 'Home', brand: 'Prestige', title: 'Prestige IRIS 750W Mixer Grinder', price: 2499, originalPrice: 4995, rating: 4.3, reviews: 34567, image: 'https://m.media-amazon.com/images/I/61Iq+4GKRSL._AC_SY200_.jpg', asin: 'B07WKXLB7D', badge: ''},
+            {category: 'Home', brand: 'Butterfly', title: 'Butterfly Vegetable Chopper 900ml', price: 399, originalPrice: 799, rating: 4.1, reviews: 12345, image: 'https://m.media-amazon.com/images/I/71xWkJIw7LL._AC_SY200_.jpg', asin: 'B08BHXQGM5', badge: 'deal'},
+            {category: 'Home', brand: 'Pigeon', title: 'Pigeon Electric Kettle 1.5L', price: 699, originalPrice: 1395, rating: 4.2, reviews: 23456, image: 'https://m.media-amazon.com/images/I/61Iq+4GKRSL._AC_SY200_.jpg', asin: 'B07WKXLB7D', badge: 'bestseller'},
+            {category: 'Home', brand: 'Prestige', title: 'Prestige Induction Cooktop 1600W', price: 2199, originalPrice: 4395, rating: 4.3, reviews: 34567, image: 'https://m.media-amazon.com/images/I/51Iq+4GKRSL._AC_SY200_.jpg', asin: 'B08BHXQGM5', badge: ''},
+            {category: 'Home', brand: 'Havells', title: 'Havells 3L Instant Water Heater', price: 4999, originalPrice: 7990, rating: 4.4, reviews: 12345, image: 'https://m.media-amazon.com/images/I/51Iq+4GKRSL._AC_SY200_.jpg', asin: 'B07WKXLB7D', badge: 'deal'},
+            {category: 'Home', brand: 'Eureka Forbes', title: 'Eureka Forbes Vacuum Cleaner 1200W', price: 4999, originalPrice: 9990, rating: 4.2, reviews: 23456, image: 'https://m.media-amazon.com/images/I/51Iq+4GKRSL._AC_SY200_.jpg', asin: 'B08BHXQGM5', badge: 'bestseller'},
+            {category: 'Home', brand: 'Inalsa', title: 'Inalsa Air Fryer 1400W 4.2L', price: 3999, originalPrice: 7995, rating: 4.3, reviews: 12345, image: 'https://m.media-amazon.com/images/I/61Iq+4GKRSL._AC_SY200_.jpg', asin: 'B07WKXLB7D', badge: ''},
+            {category: 'Home', brand: 'Wonderchef', title: 'Wonderchef Non-Stick Cookware Set', price: 2499, originalPrice: 4999, rating: 4.2, reviews: 23456, image: 'https://m.media-amazon.com/images/I/71VncILnH9L._AC_SY200_.jpg', asin: 'B08BHXQGM5', badge: 'deal'},
+            {category: 'Home', brand: 'Solimo', title: 'Solimo Stainless Steel Dinner Set 24pc', price: 1999, originalPrice: 3999, rating: 4.1, reviews: 12345, image: 'https://m.media-amazon.com/images/I/71xWkJIw7LL._AC_SY200_.jpg', asin: 'B07WKXLB7D', badge: 'bestseller'},
+            {category: 'Home', brand: 'Borosil', title: 'Borosil Opalware Dinner Set 27pc', price: 2999, originalPrice: 5999, rating: 4.4, reviews: 23456, image: 'https://m.media-amazon.com/images/I/71xWkJIw7LL._AC_SY200_.jpg', asin: 'B08BHXQGM5', badge: ''},
+            {category: 'Home', brand: 'Cello', title: 'Cello Opalware Dinner Set 18pc', price: 1499, originalPrice: 2999, rating: 4.2, reviews: 12345, image: 'https://m.media-amazon.com/images/I/71xWkJIw7LL._AC_SY200_.jpg', asin: 'B07WKXLB7D', badge: 'deal'},
+            {category: 'Home', brand: 'Amazon Brand', title: 'Solimo Cotton Bath Towel Set 4pc', price: 999, originalPrice: 1999, rating: 4.3, reviews: 23456, image: 'https://m.media-amazon.com/images/I/71VncILnH9L._AC_SY200_.jpg', asin: 'B08BHXQGM5', badge: 'bestseller'},
+            {category: 'Home', brand: 'Story@Home', title: 'Story@Home Cotton Towel Set 10pc', price: 1299, originalPrice: 2599, rating: 4.1, reviews: 12345, image: 'https://m.media-amazon.com/images/I/71VncILnH9L._AC_SY200_.jpg', asin: 'B07WKXLB7D', badge: ''},
+            {category: 'Home', brand: 'Kuber Industries', title: 'Kuber Storage Basket Set of 2', price: 399, originalPrice: 799, rating: 4.0, reviews: 12345, image: 'https://m.media-amazon.com/images/I/71VncILnH9L._AC_SY200_.jpg', asin: 'B07WKXLB7D', badge: 'bestseller'},
 
-            // Books - 10 products
-            {category: 'Books', brand: 'Penguin', title: 'Atomic Habits: An Easy & Proven Way to Build Good Habits', price: 399, originalPrice: 599, rating: 4.6, reviews: 123456, image: 'https://m.media-amazon.com/images/I/71g2ednj0JL._AC_UY218_.jpg', asin: 'B07RFSSYBH', badge: 'bestseller'},
-            {category: 'Books', brand: 'Harper Collins', title: 'The Psychology of Money by Morgan Housel', price: 299, originalPrice: 450, rating: 4.5, reviews: 89012, image: 'https://m.media-amazon.com/images/I/81YkqyaFVEL._AC_UY218_.jpg', asin: 'B08D1PQZJQ', badge: 'bestseller'},
-            {category: 'Books', brand: 'Rupa', title: 'Rich Dad Poor Dad: What the Rich Teach Their Kids About Money', price: 299, originalPrice: 450, rating: 4.4, reviews: 67890, image: 'https://m.media-amazon.com/images/I/71g2ednj0JL._AC_UY218_.jpg', asin: 'B07C7M8SX9', badge: 'deal'},
-            {category: 'Books', brand: 'Penguin', title: 'Ikigai: The Japanese Secret to a Long and Happy Life', price: 249, originalPrice: 399, rating: 4.5, reviews: 45678, image: 'https://m.media-amazon.com/images/I/81YkqyaFVEL._AC_UY218_.jpg', asin: 'B01NAG34XT', badge: 'bestseller'},
-            {category: 'Books', brand: 'Westland', title: 'Do Epic Shit by Ankur Warikoo', price: 299, originalPrice: 399, rating: 4.6, reviews: 34567, image: 'https://m.media-amazon.com/images/I/71g2ednj0JL._AC_UY218_.jpg', asin: 'B09LQWQZ8Z', badge: ''},
-            {category: 'Books', brand: 'Penguin', title: 'The Alchemist by Paulo Coelho', price: 249, originalPrice: 350, rating: 4.5, reviews: 89012, image: 'https://m.media-amazon.com/images/I/81YkqyaFVEL._AC_UY218_.jpg', asin: 'B00U6SFUSS', badge: 'bestseller'},
-            {category: 'Books', brand: 'Rupa', title: 'The Monk Who Sold His Ferrari by Robin Sharma', price: 199, originalPrice: 299, rating: 4.4, reviews: 56789, image: 'https://m.media-amazon.com/images/I/71g2ednj0JL._AC_UY218_.jpg', asin: 'B00JXPQ6QW', badge: 'deal'},
-            {category: 'Books', brand: 'Penguin', title: 'Think and Grow Rich by Napoleon Hill', price: 199, originalPrice: 299, rating: 4.5, reviews: 45678, image: 'https://m.media-amazon.com/images/I/81YkqyaFVEL._AC_UY218_.jpg', asin: 'B07WKXLB7D', badge: ''},
-            {category: 'Books', brand: 'Harper Collins', title: 'The 5 AM Club by Robin Sharma', price: 299, originalPrice: 499, rating: 4.3, reviews: 23456, image: 'https://m.media-amazon.com/images/I/71g2ednj0JL._AC_UY218_.jpg', asin: 'B08BHXQGM5', badge: 'bestseller'},
-            {category: 'Books', brand: 'Penguin', title: 'The Power of Your Subconscious Mind by Joseph Murphy', price: 149, originalPrice: 250, rating: 4.4, reviews: 67890, image: 'https://m.media-amazon.com/images/I/81YkqyaFVEL._AC_UY218_.jpg', asin: 'B07WKXLB7D', badge: 'deal'},
+            // Books
+            {category: 'Books', brand: 'Penguin', title: 'Atomic Habits: Build Good Habits & Break Bad Ones', price: 399, originalPrice: 599, rating: 4.6, reviews: 123456, image: 'https://m.media-amazon.com/images/I/71g2ednj0JL._AC_SY200_.jpg', asin: 'B07RFSSYBH', badge: 'bestseller'},
+            {category: 'Books', brand: 'Harper Collins', title: 'The Psychology of Money by Morgan Housel', price: 299, originalPrice: 450, rating: 4.5, reviews: 89012, image: 'https://m.media-amazon.com/images/I/81YkqyaFVEL._AC_SY200_.jpg', asin: 'B08D1PQZJQ', badge: 'bestseller'},
+            {category: 'Books', brand: 'Rupa', title: 'Rich Dad Poor Dad: What Rich Teach Kids About Money', price: 299, originalPrice: 450, rating: 4.4, reviews: 67890, image: 'https://m.media-amazon.com/images/I/71g2ednj0JL._AC_SY200_.jpg', asin: 'B07C7M8SX9', badge: 'deal'},
+            {category: 'Books', brand: 'Penguin', title: 'Ikigai: Japanese Secret to Long Happy Life', price: 249, originalPrice: 399, rating: 4.5, reviews: 45678, image: 'https://m.media-amazon.com/images/I/81YkqyaFVEL._AC_SY200_.jpg', asin: 'B01NAG34XT', badge: 'bestseller'},
+            {category: 'Books', brand: 'Westland', title: 'Do Epic Shit by Ankur Warikoo', price: 299, originalPrice: 399, rating: 4.6, reviews: 34567, image: 'https://m.media-amazon.com/images/I/71g2ednj0JL._AC_SY200_.jpg', asin: 'B09LQWQZ8Z', badge: ''},
+            {category: 'Books', brand: 'Penguin', title: 'The Alchemist by Paulo Coelho', price: 249, originalPrice: 350, rating: 4.5, reviews: 89012, image: 'https://m.media-amazon.com/images/I/81YkqyaFVEL._AC_SY200_.jpg', asin: 'B00U6SFUSS', badge: 'bestseller'},
+            {category: 'Books', brand: 'Rupa', title: 'The Monk Who Sold His Ferrari', price: 199, originalPrice: 299, rating: 4.4, reviews: 56789, image: 'https://m.media-amazon.com/images/I/71g2ednj0JL._AC_SY200_.jpg', asin: 'B00JXPQ6QW', badge: 'deal'},
+            {category: 'Books', brand: 'Penguin', title: 'Think and Grow Rich by Napoleon Hill', price: 199, originalPrice: 299, rating: 4.5, reviews: 45678, image: 'https://m.media-amazon.com/images/I/81YkqyaFVEL._AC_SY200_.jpg', asin: 'B07WKXLB7D', badge: ''},
+            {category: 'Books', brand: 'Harper Collins', title: 'The 5 AM Club by Robin Sharma', price: 299, originalPrice: 499, rating: 4.3, reviews: 23456, image: 'https://m.media-amazon.com/images/I/71g2ednj0JL._AC_SY200_.jpg', asin: 'B08BHXQGM5', badge: 'bestseller'},
+            {category: 'Books', brand: 'Penguin', title: 'Power of Your Subconscious Mind', price: 149, originalPrice: 250, rating: 4.4, reviews: 67890, image: 'https://m.media-amazon.com/images/I/81YkqyaFVEL._AC_SY200_.jpg', asin: 'B07WKXLB7D', badge: 'deal'},
 
-            // Sports - 10 products
-            {category: 'Sports', brand: 'Nivia', title: 'Nivia Storm Football - Size: 5', price: 599, originalPrice: 1199, rating: 4.2, reviews: 12345, image: 'https://m.media-amazon.com/images/I/71VncILnH9L._AC_UY218_.jpg', asin: 'B07WKXLB7D', badge: 'bestseller'},
-            {category: 'Sports', brand: 'Yonex', title: 'Yonex Mavis 350 Nylon Shuttle - Yellow (Pack of 6)', price: 699, originalPrice: 1200, rating: 4.4, reviews: 23456, image: 'https://m.media-amazon.com/images/I/71xWkJIw7LL._AC_UY218_.jpg', asin: 'B08BHXQGM5', badge: 'deal'},
-            {category: 'Sports', brand: 'Strauss', title: 'Strauss Yoga Mat, 6mm (Blue)', price: 599, originalPrice: 1199, rating: 4.1, reviews: 34567, image: 'https://m.media-amazon.com/images/I/71xWkJIw7LL._AC_UY218_.jpg', asin: 'B07WKXLB7D', badge: 'bestseller'},
-            {category: 'Sports', brand: 'Kore', title: 'Kore PVC-DM Combo 16 Home Gym and Fitness Kit', price: 2999, originalPrice: 5999, rating: 4.2, reviews: 12345, image: 'https://m.media-amazon.com/images/I/61pglWl7oYL._AC_UY218_.jpg', asin: 'B08BHXQGM5', badge: ''},
-            {category: 'Sports', brand: 'Boldfit', title: 'Boldfit Gym Shaker Bottle 500ml with Extra Compartment', price: 299, originalPrice: 599, rating: 4.3, reviews: 23456, image: 'https://m.media-amazon.com/images/I/61pglWl7oYL._AC_UY218_.jpg', asin: 'B07WKXLB7D', badge: 'deal'},
-            {category: 'Sports', brand: 'Cosco', title: 'Cosco Hi-Grip Volleyball', price: 499, originalPrice: 999, rating: 4.0, reviews: 12345, image: 'https://m.media-amazon.com/images/I/71VncILnH9L._AC_UY218_.jpg', asin: 'B08BHXQGM5', badge: 'bestseller'},
-            {category: 'Sports', brand: 'Nivia', title: 'Nivia Encounter Basketball - Size: 7', price: 799, originalPrice: 1599, rating: 4.2, reviews: 23456, image: 'https://m.media-amazon.com/images/I/71xWkJIw7LL._AC_UY218_.jpg', asin: 'B07WKXLB7D', badge: ''},
-            {category: 'Sports', brand: 'Strauss', title: 'Strauss Adjustable Hand Grip Strengthener', price: 199, originalPrice: 399, rating: 4.1, reviews: 12345, image: 'https://m.media-amazon.com/images/I/71VncILnH9L._AC_UY218_.jpg', asin: 'B08BHXQGM5', badge: 'deal'},
-            {category: 'Sports', brand: 'Boldfit', title: 'Boldfit Resistance Bands Set of 5 for Exercise', price: 499, originalPrice: 999, rating: 4.3, reviews: 23456, image: 'https://m.media-amazon.com/images/I/71VncILnH9L._AC_UY218_.jpg', asin: 'B07WKXLB7D', badge: 'bestseller'},
-            {category: 'Sports', brand: 'Nivia', title: 'Nivia Ashtang Yoga Mat with Carry Bag', price: 799, originalPrice: 1599, rating: 4.2, reviews: 12345, image: 'https://m.media-amazon.com/images/I/71xWkJIw7LL._AC_UY218_.jpg', asin: 'B08BHXQGM5', badge: ''}
+            // Sports
+            {category: 'Sports', brand: 'Nivia', title: 'Nivia Storm Football Size 5', price: 599, originalPrice: 1199, rating: 4.2, reviews: 12345, image: 'https://m.media-amazon.com/images/I/71VncILnH9L._AC_SY200_.jpg', asin: 'B07WKXLB7D', badge: 'bestseller'},
+            {category: 'Sports', brand: 'Yonex', title: 'Yonex Mavis 350 Nylon Shuttle Pack of 6', price: 699, originalPrice: 1200, rating: 4.4, reviews: 23456, image: 'https://m.media-amazon.com/images/I/71xWkJIw7LL._AC_SY200_.jpg', asin: 'B08BHXQGM5', badge: 'deal'},
+            {category: 'Sports', brand: 'Strauss', title: 'Strauss Yoga Mat 6mm Blue', price: 599, originalPrice: 1199, rating: 4.1, reviews: 34567, image: 'https://m.media-amazon.com/images/I/71xWkJIw7LL._AC_SY200_.jpg', asin: 'B07WKXLB7D', badge: 'bestseller'},
+            {category: 'Sports', brand: 'Kore', title: 'Kore Home Gym Fitness Kit', price: 2999, originalPrice: 5999, rating: 4.2, reviews: 12345, image: 'https://m.media-amazon.com/images/I/61pglWl7oYL._AC_SY200_.jpg', asin: 'B08BHXQGM5', badge: ''},
+            {category: 'Sports', brand: 'Boldfit', title: 'Boldfit Gym Shaker Bottle 500ml', price: 299, originalPrice: 599, rating: 4.3, reviews: 23456, image: 'https://m.media-amazon.com/images/I/61pglWl7oYL._AC_SY200_.jpg', asin: 'B07WKXLB7D', badge: 'deal'},
+            {category: 'Sports', brand: 'Cosco', title: 'Cosco Hi-Grip Volleyball', price: 499, originalPrice: 999, rating: 4.0, reviews: 12345, image: 'https://m.media-amazon.com/images/I/71VncILnH9L._AC_SY200_.jpg', asin: 'B08BHXQGM5', badge: 'bestseller'},
+            {category: 'Sports', brand: 'Nivia', title: 'Nivia Encounter Basketball Size 7', price: 799, originalPrice: 1599, rating: 4.2, reviews: 23456, image: 'https://m.media-amazon.com/images/I/71xWkJIw7LL._AC_SY200_.jpg', asin: 'B07WKXLB7D', badge: ''},
+            {category: 'Sports', brand: 'Strauss', title: 'Strauss Hand Grip Strengthener', price: 199, originalPrice: 399, rating: 4.1, reviews: 12345, image: 'https://m.media-amazon.com/images/I/71VncILnH9L._AC_SY200_.jpg', asin: 'B08BHXQGM5', badge: 'deal'},
+            {category: 'Sports', brand: 'Boldfit', title: 'Boldfit Resistance Bands Set of 5', price: 499, originalPrice: 999, rating: 4.3, reviews: 23456, image: 'https://m.media-amazon.com/images/I/71VncILnH9L._AC_SY200_.jpg', asin: 'B07WKXLB7D', badge: 'bestseller'},
+            {category: 'Sports', brand: 'Nivia', title: 'Nivia Yoga Mat with Carry Bag', price: 799, originalPrice: 1599, rating: 4.2, reviews: 12345, image: 'https://m.media-amazon.com/images/I/71xWkJIw7LL._AC_SY200_.jpg', asin: 'B08BHXQGM5', badge: ''}
         ];
 
         let filteredProducts = [...products];
-        let currentCategory = 'all';
 
         function getStars(rating) {
             const full = Math.floor(rating);
@@ -794,7 +700,7 @@
                 <div class="product-card">
                     ${badgeHTML}
                     <div class="product-image">
-                        <img src="${product.image}" alt="${product.title}" loading="lazy">
+                        <img src="${product.image}" alt="${product.title}" loading="lazy" onerror="this.src='https://via.placeholder.com/250x250/f0f0f0/666666?text=Product+Image'">
                     </div>
                     <div class="sponsored">Sponsored</div>
                     <a href="${amazonUrl}" target="_blank" style="text-decoration: none; color: inherit;">
@@ -806,7 +712,7 @@
                     </div>
                     <div class="price-section">
                         <span class="price">
-                            <span class="price-symbol">₹</span>${Math.floor(product.price)}<span class="price-decimal">${(product.price % 1).toFixed(2).substring(1)}</span>
+                            <span class="price-symbol">₹</span>${Math.floor(product.price)}
                         </span>
                         <span class="original-price">M.R.P.: ₹${product.originalPrice.toLocaleString()}</span>
                         <span class="discount">(${discount}% off)</span>
@@ -827,7 +733,6 @@
         function applyFilters() {
             let result = [...products];
 
-            // Category filter
             const selectedCategories = Array.from(document.querySelectorAll('.filter-section input[type="checkbox"]'))
                 .filter(cb => cb.checked && ['Electronics', 'Fashion', 'Home', 'Books', 'Sports'].includes(cb.value))
                 .map(cb => cb.value);
@@ -835,7 +740,6 @@
                 result = result.filter(p => selectedCategories.includes(p.category));
             }
 
-            // Rating filter
             const selectedRatings = Array.from(document.querySelectorAll('.filter-section input[id^="rating-"]'))
                 .filter(cb => cb.checked)
                 .map(cb => parseFloat(cb.value));
@@ -844,15 +748,6 @@
                 result = result.filter(p => p.rating >= minRating);
             }
 
-            // Brand filter
-            const selectedBrands = Array.from(document.querySelectorAll('.filter-section input[type="checkbox"]'))
-                .filter(cb => cb.checked && ['Samsung', 'Boat', 'Nike', 'Sony', 'Prestige'].includes(cb.value))
-                .map(cb => cb.value);
-            if (selectedBrands.length > 0) {
-                result = result.filter(p => selectedBrands.includes(p.brand));
-            }
-
-            // Price range filter
             const selectedPriceRanges = Array.from(document.querySelectorAll('.filter-section input[type="checkbox"]'))
                 .filter(cb => cb.checked && cb.value.includes('-'))
                 .map(cb => cb.value);
@@ -865,20 +760,10 @@
                 });
             }
 
-            // Custom price filter
             const minPrice = document.getElementById('minPrice').value;
             const maxPrice = document.getElementById('maxPrice').value;
             if (minPrice) result = result.filter(p => p.price >= parseInt(minPrice));
             if (maxPrice) result = result.filter(p => p.price <= parseInt(maxPrice));
-
-            // Discount filter
-            const selectedDiscounts = Array.from(document.querySelectorAll('.filter-section input[type="checkbox"]'))
-                .filter(cb => cb.checked && ['50', '40', '30', '20'].includes(cb.value))
-                .map(cb => parseInt(cb.value));
-            if (selectedDiscounts.length > 0) {
-                const minDiscount = Math.min(...selectedDiscounts);
-                result = result.filter(p => getDiscount(p.price, p.originalPrice) >= minDiscount);
-            }
 
             filteredProducts = result;
             sortProducts();
@@ -896,9 +781,6 @@
                     break;
                 case 'rating':
                     filteredProducts.sort((a, b) => b.rating - a.rating);
-                    break;
-                case 'newest':
-                    filteredProducts.reverse();
                     break;
                 default:
                     filteredProducts.sort((a, b) => b.reviews - a.reviews);
@@ -930,7 +812,6 @@
         }
 
         function filterByCategory(category) {
-            currentCategory = category;
             if (category === 'all') {
                 filteredProducts = [...products];
             } else {
@@ -949,7 +830,6 @@
             renderProducts();
         }
 
-        // Initial render
         renderProducts();
     </script>
 </body>
